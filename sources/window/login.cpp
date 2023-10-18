@@ -48,7 +48,7 @@ void Login::keyConfig(){
 }
 
 void setRedBorder(QLineEdit* lineEdit) {
-    QString styleSheet = "QLineEdit { border-bottom: 1px solid red; }";
+    QString styleSheet = "QLineEdit { border-bottom: 4px solid red; }";
     lineEdit->setStyleSheet(styleSheet);
 }
 
