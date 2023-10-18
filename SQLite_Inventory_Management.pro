@@ -21,6 +21,7 @@ SOURCES += \
     sources/database/init/triggerup.cpp \
     sources/database/show/product.cpp \
     sources/window/inscategory.cpp \
+    sources/window/insproduct.cpp \
     sources/window/login.cpp \
     sources/window/main.cpp \
     sources/window/mainapp.cpp
@@ -37,12 +38,14 @@ HEADERS += \
     headers/database/init/triggerdown.h \
     headers/window/inscategory.h \
     headers/window/mainapp.h \
-    headers/window/login.h
+    headers/window/login.h \
+    headers/window/insproduct.h
 
 FORMS += \
     forms/inscategory.ui \
     forms/mainapp.ui \
-    forms/login.ui
+    forms/login.ui \
+    forms/insproduct.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
