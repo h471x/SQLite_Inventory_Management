@@ -22,8 +22,6 @@ private: //actions buttons
     QPushButton* deleteBtn;
     QPushButton* infoBtn;
     QFont tableFont;
-    QList<int> selectedColumns = {0, 1, 2, 3, 4};
-    int tableColumnCount = selectedColumns.size();
     QString handleItemSelectionChanged(QTableWidget* productTable);
 
 };
