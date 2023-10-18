@@ -1,5 +1,4 @@
 #include "headers/window/mainapp.h"
-#include "headers/window/inscategory.h"
 
 MainApp::MainApp(QWidget *parent)
     : QMainWindow(parent)
@@ -28,13 +27,13 @@ void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
 
-void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);}
-void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);}
-void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);};
-void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);};
-void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);};
-void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(5);};
-void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(6);};
+void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet();}
+void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();}
+void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();};
+void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();};
+void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();};
+void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();};
+void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();};
 
 void MainApp::home(){
     // load home contents
@@ -239,11 +238,31 @@ void MainApp::on_NotifBtn_clicked()
     home();
 }
 
+void MainApp::removeStyleSheet()
+{
+    MainUi->HomeBtn->setStyleSheet("");
+    MainUi->MenuBtn->setStyleSheet("");
+    MainUi->AdminBtn->setStyleSheet("");
+    MainUi->FindBtn->setStyleSheet("");
+    MainUi->FlowsBtn->setStyleSheet("");
+    MainUi->OptionsBtn->setStyleSheet("");
+    MainUi->HelpBtn->setStyleSheet("");
+}
 
 void MainApp::on_pushButton_clicked()
 {
-    InsertCategory *categoryInsert = new InsertCategory(); // create the Main App Instance
+    InsertCategory *categoryInsert = new InsertCategory();
     categoryInsert->setModal(true);
     categoryInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+
+void MainApp::on_pushButton_2_clicked()
+{
+    InsertProduct *productInsert = new InsertProduct();
+    productInsert->setModal(true);
+    productInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
