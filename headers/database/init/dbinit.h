@@ -37,7 +37,7 @@ private: //Object Instance
 
 public: //Conflict handler
     static DbInit& getInstance();
-    QSqlDatabase getConnection();   
+    QSqlDatabase getConnection();
 };
 
 #endif // DBINIT_H
