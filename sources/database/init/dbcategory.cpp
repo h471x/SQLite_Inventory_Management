@@ -9,7 +9,7 @@ void CategoryInit::initCategory(){
 
 void CategoryInit::tableCategory(){
     QSqlQuery query;
-    query.exec("CREATE TABLE IF NOT EXISTS CATEGORIE (IdCategorie INTEGER NOT NULL ,NomCategorie TEXT NOT NULL ,NbeMateriel INTEGER NOT NULL DEFAULT 0 ,PRIMARY KEY(IdCategorie));");
+    query.exec("CREATE TABLE CATEGORIE (IdCategorie INTEGER NOT NULL ,NomCategorie TEXT NOT NULL ,SeuilCategorie INTEGER NOT NULL DEFAULT 5 ,NbeMateriel INTEGER NOT NULL DEFAULT 0 ,PRIMARY KEY(IdCategorie));");
 }
 
 void CategoryInit::valueCategory(){
