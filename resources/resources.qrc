@@ -1,0 +1,41 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/white/login.png</file>
+    <file>icons/white/add.png</file>
+    <file>icons/white/admin.png</file>
+    <file>icons/white/delete.png</file>
+    <file>icons/white/edit.svg</file>
+    <file>icons/white/find.png</file>
+    <file>icons/white/flows.png</file>
+    <file>icons/white/help.png</file>
+    <file>icons/white/home.png</file>
+    <file>icons/white/info.png</file>
+    <file>icons/white/manage.png</file>
+    <file>icons/white/menu.svg</file>
+    <file>icons/white/notification_off.png</file>
+    <file>icons/white/notification_on.png</file>
+    <file>icons/white/off.png</file>
+    <file>icons/white/ok.png</file>
+    <file>icons/white/on.png</file>
+    <file>icons/white/options.png</file>
+    <file>icons/white/save.png</file>
+    <file>icons/black/add.png</file>
+    <file>icons/black/admin.png</file>
+    <file>icons/black/delete.png</file>
+    <file>icons/black/edit.svg</file>
+    <file>icons/black/find.png</file>
+    <file>icons/black/flows.png</file>
+    <file>icons/black/help.png</file>
+    <file>icons/black/home.png</file>
+    <file>icons/black/info.png</file>
+    <file>icons/black/manage.png</file>
+    <file>icons/black/menu.svg</file>
+    <file>icons/black/notification_off.png</file>
+    <file>icons/black/notification_on.png</file>
+    <file>icons/black/off.png</file>
+    <file>icons/black/ok.png</file>
+    <file>icons/black/on.png</file>
+    <file>icons/black/options.png</file>
+    <file>icons/black/save.png</file>
+  </qresource>
+</RCC>
