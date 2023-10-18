@@ -6,6 +6,7 @@
 #include "ui_mainapp.h"
 #include "headers/database/show/product.h"
 #include "headers/window/inscategory.h"
+#include "headers/window/insproduct.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainApp; }
@@ -36,6 +37,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
@@ -48,6 +51,7 @@ public: //Methods
     void focusFlows();
     void focusOptions();
     void focusHelp();
+    void removeStyleSheet();
 
 public: //Methods
     void home();
