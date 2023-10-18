@@ -2,6 +2,7 @@
 #define INSPRODUCT_H
 
 #include "headers/database/init/dbproduct.h"
+#include "headers/database/show/history.h"
 #include <QDialog>
 
 namespace Ui {
@@ -22,6 +23,7 @@ private slots:
 private:
     Ui::InsertProduct *InsertProductUi;
     QSqlQuery query;
+    HistoryShow history;
 };
 
 #endif // INSPRODUCT_H
