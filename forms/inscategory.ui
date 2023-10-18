@@ -97,7 +97,7 @@ QLineEdit:Focus{
     </rect>
    </property>
    <property name="text">
-    <string>INSERT</string>
+    <string>NEW CATEGORY</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
