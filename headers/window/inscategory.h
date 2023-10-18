@@ -2,8 +2,10 @@
 #define INSCATEGORY_H
 
 #include <QDialog>
-
 #include "headers/database/init/dbcategory.h"
+#include <QKeyEvent>
+#include <QString>
+#include <QLineEdit>
 
 namespace Ui {
 class InsertCategory;
@@ -20,9 +22,17 @@ public:
 private slots:
     void on_InsertCategoryBtn_clicked();
 
-private:
+private: //object instances
     Ui::InsertCategory *InsertCategoryUi;
     QSqlQuery query;
+
+private:
+    void keyConfig();
+    void keyPressEvent(QKeyEvent *event) override;
+
+private: //variables
+    bool inserted = false;
+
 };
 
 #endif // INSCATEGORY_H
