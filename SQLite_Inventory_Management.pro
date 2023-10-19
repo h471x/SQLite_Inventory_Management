@@ -21,6 +21,7 @@ SOURCES += \
     sources/database/init/triggerdown.cpp \
     sources/database/init/triggerup.cpp \
     sources/database/init/triggersave.cpp \
+    sources/database/show/available.cpp \
     sources/database/show/history.cpp \
     sources/database/show/product.cpp \
     sources/window/inscategory.cpp \
@@ -50,7 +51,8 @@ HEADERS += \
     headers/window/insertuser.h \
     headers/database/show/product.h \
     headers/database/show/history.h \
-    headers/database/show/table.h
+    headers/database/show/table.h \
+    headers/database/show/available.h
 
 FORMS += \
     forms/inscategory.ui \
