@@ -19,6 +19,8 @@ SOURCES += \
     sources/database/init/dbprovider.cpp \
     sources/database/init/dbuser.cpp \
     sources/database/init/triggerdown.cpp \
+    sources/database/init/triggerlend.cpp \
+    sources/database/init/triggerreturn.cpp \
     sources/database/init/triggerup.cpp \
     sources/database/init/triggersave.cpp \
     sources/database/show/available.cpp \
@@ -28,6 +30,7 @@ SOURCES += \
     sources/window/insertuser.cpp \
     sources/window/insproduct.cpp \
     sources/window/insertprovider.cpp \
+    sources/window/lendproduct.cpp \
     sources/window/login.cpp \
     sources/window/main.cpp \
     sources/window/mainapp.cpp
@@ -38,21 +41,26 @@ HEADERS += \
     headers/database/init/dbhistory.h \
     headers/database/init/dbinit.h \
     headers/database/init/dbproduct.h \
-    headers/database/init/triggersave.h \
     headers/database/init/dbprovider.h \
     headers/database/init/dbuser.h \
     headers/database/init/triggerup.h \
     headers/database/init/triggerdown.h \
+    headers/database/init/triggerreturn.h \
+    headers/database/init/triggerlend.h \
+    headers/database/init/triggersave.h \
     headers/window/inscategory.h \
     headers/window/insertprovider.h \
     headers/window/mainapp.h \
     headers/window/login.h \
     headers/window/insproduct.h \
+    headers/window/lendproduct.h \
     headers/window/insertuser.h \
     headers/database/show/product.h \
     headers/database/show/history.h \
     headers/database/show/table.h \
     headers/database/show/available.h
+
+
 
 FORMS += \
     forms/inscategory.ui \
@@ -60,7 +68,8 @@ FORMS += \
     forms/login.ui \
     forms/insproduct.ui \
     forms/insertuser.ui \
-    forms/insertprovider.ui
+    forms/insertprovider.ui \
+    forms/lendproduct.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
