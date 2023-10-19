@@ -25,23 +25,32 @@ void InsertUser::on_pushButton_clicked()
 
     if (!username.isEmpty() && !nom.isEmpty() && !prenom.isEmpty() && !adresse.isEmpty() && !telephone.isEmpty())
     {
-        query.prepare("INSERT INTO UTILISATEUR(UsernameUtilisateur, NomUtilisateur, PrenomUtilisateur, AdresseUtilisateur, TelephoneUtilisateur) VALUES(:username, :nom, :prenom, :adresse, :telephone);");
-        query.bindValue(":username", username);
-        query.bindValue(":nom", nom);
-        query.bindValue(":prenom", prenom);
-        query.bindValue(":adresse", adresse);
-        query.bindValue(":telephone", telephone);
-        if(query.exec()){
-             this->close();
-        }else{
-            qDebug() << "Insert error : " << query.lastError();
+        bool isNumeric;
+        telephone.toInt(&isNumeric);
+
+        if (isNumeric && telephone.length() == 10) {
+            query.prepare("INSERT INTO UTILISATEUR(UsernameUtilisateur, NomUtilisateur, PrenomUtilisateur, AdresseUtilisateur, TelephoneUtilisateur) VALUES(:username, :nom, :prenom, :adresse, :telephone);");
+            query.bindValue(":username", username);
+            query.bindValue(":nom", nom);
+            query.bindValue(":prenom", prenom);
+            query.bindValue(":adresse", adresse);
+            query.bindValue(":telephone", telephone);
+
+            if(query.exec()){
+                this->close();
+            } else {
+                qDebug() << "Insert error: " << query.lastError();
+            }
+        } else {
+            // Handle the case where telephone is not a 10-digit integer
+            QMessageBox::critical(this, "Error", "Telephone must be a 10-digit number.");
         }
     }
     else
     {
-        qDebug() << " Missed value ";
+//        qDebug() << "Missed value";
+        // Handle the case where required fields are missing
+        QMessageBox::warning(this, "Missing Values", "Please fill in all the required fields.");
     }
-
-
 }
 
