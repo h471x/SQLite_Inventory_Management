@@ -102,6 +102,8 @@ void Login::success(){
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
     triggersave.initTriggerSave();
+    triggerlend.initTriggerLend();
+    triggerreturn.initTriggerReturn();
 //    product.valueProduct();
 
     isLoggedIn = true; // Set the login boolean
