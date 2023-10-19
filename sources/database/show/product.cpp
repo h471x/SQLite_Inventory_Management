@@ -4,7 +4,8 @@ ProductShow::ProductShow(){}
 
 void ProductShow::showProduct(QTableWidget* productTable){
     TableView* model = new TableView(this, mydb);
-    QString query = "SELECT IdMateriel as ID, NomMateriel as Nom, Marque, Etat, DEnregistrement as Date FROM MATERIEL;";
+//    QString query = "SELECT IdMateriel as ID, NomMateriel as Nom, Marque, Etat, DEnregistrement as Date FROM MATERIEL;";
+    QString query = "SELECT MATERIEL.IdMateriel AS Id,MATERIEL.NomMateriel AS Nom,MATERIEL.Marque AS Marque,MATERIEL.Etat AS Etat,CATEGORIE.NomCategorie AS Categorie,MATERIEL.DEnregistrement AS Date,ADMIN.UsernameAdmin AS Admin,FOURNISSEUR.NomFournisseur AS Fournisseur FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie INNER JOIN ADMIN ON ADMIN.UsernameAdmin = MATERIEL.UsernameAdmin INNER JOIN FOURNISSEUR ON FOURNISSEUR.NomFournisseur = MATERIEL.NomFournisseur;";
     model->setQuery(query);
     model->select();
 
@@ -43,7 +44,7 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
 
          editBtn = new QPushButton();
          deleteBtn = new QPushButton();
-         infoBtn = new QPushButton();
+//         infoBtn = new QPushButton(" Info");
 
          productTable->setRowHeight(row, 60);
 
@@ -56,12 +57,12 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
          actionFont.setPointSize(9);
          editBtn->setFont(actionFont);
          deleteBtn->setFont(actionFont);
-         infoBtn->setFont(actionFont);
+//         infoBtn->setFont(actionFont);
 
         // Widget for the buttons
         QWidget* actionsWidget = new QWidget();
         QHBoxLayout* actionsLayout = new QHBoxLayout(actionsWidget);
-        actionsLayout->addWidget(infoBtn);
+//        actionsLayout->addWidget(infoBtn);
         actionsLayout->addWidget(editBtn);
         actionsLayout->addWidget(deleteBtn);
         actionsLayout->setContentsMargins(0, 0, 0, 0);
@@ -118,11 +119,11 @@ void ProductShow::btnConfig(){
     //Tool Tips
     editBtn->setToolTip("Edit");
     deleteBtn->setToolTip("Delete");
-    infoBtn->setToolTip("Infos");
+//    infoBtn->setToolTip("Infos");
 
     editBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
     deleteBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
-    infoBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
+//    infoBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
 
     // Change the icons of the Buttons here
     editBtn->setIcon(QIcon(":/icons/icons/black/edit.svg"));
@@ -131,13 +132,13 @@ void ProductShow::btnConfig(){
     deleteBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
     deleteBtn->setIconSize(QSize(30, 30));
 
-    infoBtn->setIcon(QIcon(":/icons/icons/black/info.png"));
-    infoBtn->setIconSize(QSize(30, 30));
+//    infoBtn->setIcon(QIcon(":/icons/icons/black/info.png"));
+//    infoBtn->setIconSize(QSize(30, 30));
 
     // Set the focud Policy to No focus
     editBtn->setFocusPolicy(Qt::NoFocus);
     deleteBtn->setFocusPolicy(Qt::NoFocus);
-    infoBtn->setFocusPolicy(Qt::NoFocus);
+//    infoBtn->setFocusPolicy(Qt::NoFocus);
 }
 
 void ProductShow::deleteRowFeature(QTableWidget* productTable){
