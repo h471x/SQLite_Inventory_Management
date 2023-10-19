@@ -6,6 +6,7 @@
 #include "ui_mainapp.h"
 #include "headers/database/show/product.h"
 #include "headers/database/show/history.h"
+#include "headers/database/show/available.h"
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
 #include "headers/window/insertuser.h"
@@ -78,6 +79,7 @@ public: //Methods
 private: //data from database classes
     ProductShow product;
     HistoryShow history;
+    AvailableShow available;
 
 private: //table widget
 
