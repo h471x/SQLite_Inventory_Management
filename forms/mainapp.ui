@@ -282,11 +282,11 @@ QTableWidget QScrollBar:Vertical{
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>     Users</string>
+                <string>     View</string>
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/black/admin.png</normaloff>:/icons/icons/black/admin.png</iconset>
+                 <normaloff>:/icons/icons/black/view.png</normaloff>:/icons/icons/black/view.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
