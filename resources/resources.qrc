@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/black/view.png</file>
     <file>icons/black/back.png</file>
     <file>icons/black/history.png</file>
     <file>icons/black/reload.png</file>
