@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 SOURCES += \
+    sources/window/returnproduct.cpp \
     sources/database/init/dbhistory.cpp \
     sources/database/init/dbcategory.cpp \
     sources/database/init/dbadmin.cpp \
@@ -58,7 +59,8 @@ HEADERS += \
     headers/database/show/product.h \
     headers/database/show/history.h \
     headers/database/show/table.h \
-    headers/database/show/available.h
+    headers/database/show/available.h \
+    headers/window/returnproduct.h
 
 
 
@@ -69,7 +71,8 @@ FORMS += \
     forms/insproduct.ui \
     forms/insertuser.ui \
     forms/insertprovider.ui \
-    forms/lendproduct.ui
+    forms/lendproduct.ui \
+    forms/returnproduct.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
