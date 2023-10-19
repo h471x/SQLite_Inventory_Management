@@ -24,6 +24,7 @@ void MainApp::on_MenuBtn_clicked(){ focusMenu(); }
 void MainApp::on_AdminBtn_clicked(){ focusAdmin(); }
 void MainApp::on_FindBtn_clicked(){ focusFind(); }
 void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
+void MainApp::on_AvailableBtn_clicked(){ focusAvailable(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
 
@@ -32,8 +33,10 @@ void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet()
 void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();};
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();};
 void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();};
-void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();};
-void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();};
+void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();}
+void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();};
+void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();};
+
 
 void MainApp::home(){
     // load home contents
@@ -127,12 +130,28 @@ void MainApp::on_pushButton_clicked()
 
 void MainApp::on_pushButton_2_clicked()
 {
-    InsertProduct *productInsert = new InsertProduct();
-    productInsert->setModal(true);
-    productInsert->show();
-    connect(productInsert, &QDialog::finished, this, &MainApp::reloadHistory);
-    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+    // Query to retrieve the list of categories
+    QSqlQuery categoryQuery("SELECT NomCategorie FROM CATEGORIE");
+
+    if (!categoryQuery.exec()) {
+        qDebug() << "Error querying categories: " << categoryQuery.lastError();
+        // Display an error message here or handle the error accordingly
+    } else {
+        // Check if there are no categories
+        if (!categoryQuery.next()) {
+            qDebug() << "No categories found in the CATEGORIE table";
+            // Display an error message here or handle the case of no categories
+        } else {
+            // At least one category is found; proceed with showing the InsertProduct dialog
+            InsertProduct *productInsert = new InsertProduct();
+            productInsert->setModal(true);
+            productInsert->show();
+            connect(productInsert, &QDialog::finished, this, &MainApp::reloadHistory);
+            MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+        }
+    }
 }
+
 
 void MainApp::on_UserBtn_clicked()
 {
@@ -296,4 +315,7 @@ void MainApp::on_LightBtn_2_clicked()
     home();
 
 }
+
+
+
 
