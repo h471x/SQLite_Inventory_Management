@@ -4,7 +4,7 @@ UserInit::UserInit(){}
 
 void UserInit::initUser(){
     tableUser();
-    valueUser();
+//    valueUser();
 }
 
 void UserInit::tableUser(){
@@ -15,7 +15,8 @@ void UserInit::tableUser(){
 
 void UserInit::valueUser(){
     QSqlQuery query;
-    query.prepare("INSERT OR IGNORE INTO UTILISATEUR(NomUtilisateur,PrenomUtilisateur,AdresseUtilisateur,TelephoneUtilisateur) VALUES(:idusr, :nusr, :pusr, :adr, :phn)");
+    query.prepare("INSERT OR IGNORE INTO UTILISATEUR(UsernameUtilisateur, NomUtilisateur,PrenomUtilisateur,AdresseUtilisateur,TelephoneUtilisateur) VALUES(:usr, :nusr, :pusr, :adr, :phn)");
+    query.bindValue(":usr", "htx");
     query.bindValue(":nusr", "Hatix");
     query.bindValue(":pusr", "Ntsoa");
     query.bindValue(":adr", "Fianarantsoa");
