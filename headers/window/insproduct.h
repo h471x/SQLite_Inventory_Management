@@ -2,6 +2,7 @@
 #define INSPRODUCT_H
 
 #include "headers/database/init/dbproduct.h"
+#include "headers/database/init/dbprovider.h"
 #include "headers/database/show/history.h"
 #include <QDialog>
 
@@ -19,6 +20,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+//    void loadCategorieData();
+//    void loadFournisseurData();
 
 private:
     Ui::InsertProduct *InsertProductUi;
