@@ -251,6 +251,14 @@ void MainApp::removeStyleSheet()
     MainUi->HelpBtn->setStyleSheet("");
 }
 
+void MainApp::reloadHistory()
+{
+    MainUi->findWidget->clear();
+    MainUi->findWidget->setRowCount(0); // Supprime les lignes
+    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
+    history.showHistory(MainUi->findWidget);
+}
+
 void MainApp::on_pushButton_clicked()
 {
     InsertCategory *categoryInsert = new InsertCategory();
@@ -265,6 +273,7 @@ void MainApp::on_pushButton_2_clicked()
     InsertProduct *productInsert = new InsertProduct();
     productInsert->setModal(true);
     productInsert->show();
+    connect(productInsert, &QDialog::finished, this, &MainApp::reloadHistory);
     MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
@@ -276,7 +285,6 @@ void MainApp::on_UserBtn_clicked()
     userInsert->show();
     MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
-
 
 void MainApp::on_SearchBtn_clicked()
 {
