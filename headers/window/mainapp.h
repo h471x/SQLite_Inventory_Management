@@ -13,6 +13,10 @@
 #include "headers/window/returnproduct.h"
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
+#include "headers/database/show/admin.h"
+#include "headers/database/show/category.h"
+#include "headers/database/show/provider.h"
+#include "headers/database/show/user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainApp; }
@@ -76,6 +80,10 @@ private: //data from database classes
     ProductShow product;
     HistoryShow history;
     AvailableShow available;
+    AdminShow adminShow;
+    CategoryShow categoryShow;
+    ProviderShow providerShow;
+    UserShow userShow;
 
 private: //table widget
     QString getIdProduct();
