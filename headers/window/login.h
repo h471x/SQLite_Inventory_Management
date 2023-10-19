@@ -18,6 +18,8 @@
 #include "headers/database/init/triggerup.h"
 #include "headers/database/init/triggerdown.h"
 #include "headers/database/init/triggersave.h"
+#include "headers/database/init/triggerlend.h"
+#include "headers/database/init/triggerreturn.h"
 
 namespace Ui {
 class Login;
@@ -58,6 +60,8 @@ private: //db classes Instances
     TriggerUpInit triggerup;
     TriggerDownInit triggerdown;
     TriggerSaveInit triggersave;
+    TriggerLendInit triggerlend;
+    TriggerReturnInit triggerreturn;
     QSqlQuery query;
 
 };
