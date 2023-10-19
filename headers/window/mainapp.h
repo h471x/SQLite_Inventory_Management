@@ -10,6 +10,7 @@
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
 #include "headers/window/lendproduct.h"
+#include "headers/window/returnproduct.h"
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
 
