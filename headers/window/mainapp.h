@@ -5,8 +5,10 @@
 
 #include "ui_mainapp.h"
 #include "headers/database/show/product.h"
+#include "headers/database/show/history.h"
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
+#include "headers/window/insertuser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainApp; }
@@ -39,6 +41,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_UserBtn_clicked();
+
+    void on_SearchBtn_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
@@ -64,6 +70,7 @@ public: //Methods
 
 private: //data from database classes
     ProductShow product;
+    HistoryShow history;
 
 private: //table widget
 
