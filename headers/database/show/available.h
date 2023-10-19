@@ -19,7 +19,7 @@ private: //Object Instance
 
 private: //actions buttons
     QFont tableFont;
-//    QString handleItemSelectionChanged(QTableWidget* productTable);
+    QString handleLend(QTableWidget* productTable);
 
 };
 
