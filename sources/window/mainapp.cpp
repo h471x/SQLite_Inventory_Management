@@ -210,9 +210,7 @@ void MainApp::on_LendBtn_clicked() {
 
 void MainApp::on_ReturnBtn_clicked()
 {
-    QString idMateriel2 = "return";
-
-    LendProduct *returnProduct = new LendProduct(idMateriel2);
+    ReturnProduct *returnProduct = new ReturnProduct();
     returnProduct->setModal(true);
 
     // Connect the finished signal of lendProduct to the home slot of MainApp
