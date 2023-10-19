@@ -304,7 +304,7 @@ QTableWidget QScrollBar:Vertical{
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/black/save.png</normaloff>:/icons/icons/black/save.png</iconset>
+                 <normaloff>:/icons/icons/black/history.png</normaloff>:/icons/icons/black/history.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1270,7 +1270,7 @@ QTableWidget QScrollBar:Vertical{
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="NotifBtn_2">
+                  <widget class="QPushButton" name="LendBtn">
                    <property name="focusPolicy">
                     <enum>Qt::NoFocus</enum>
                    </property>
@@ -1279,12 +1279,32 @@ QTableWidget QScrollBar:Vertical{
                    </property>
                    <property name="icon">
                     <iconset resource="../resources/resources.qrc">
-                     <normaloff>:/icons/icons/black/notification_off.png</normaloff>:/icons/icons/black/notification_off.png</iconset>
+                     <normaloff>:/icons/icons/black/add.png</normaloff>:/icons/icons/black/add.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
                      <width>45</width>
                      <height>45</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="ReturnBtn">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources/resources.qrc">
+                     <normaloff>:/icons/icons/black/back.png</normaloff>:/icons/icons/black/back.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>40</width>
+                     <height>40</height>
                     </size>
                    </property>
                   </widget>
