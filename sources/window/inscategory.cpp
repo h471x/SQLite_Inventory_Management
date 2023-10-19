@@ -7,7 +7,6 @@ InsertCategory::InsertCategory(QDialog *parent) :
     InsertCategoryUi(new Ui::InsertCategory)
 {
     InsertCategoryUi->setupUi(this);
-    // Hide the "?" button
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     QDialog dialog;
     dialog.setStyleSheet("QDialog { background-color: #c5cad6; }");
@@ -79,14 +78,14 @@ void InsertCategory::on_InsertCategoryBtn_clicked()
         error();
         return;
     } else if (isCategoryEmpty) {
-        error(); //category must not be empty
+        error(); // Category must not be empty
         return;
     } else if (!isSeuilEmpty) {
         bool isSeuilNumber;
         int threshold = seuil.toInt(&isSeuilNumber);
 
         if (!isSeuilNumber) {
-            error(); //seuil must be a number
+            error(); // Seuil must be a number
             return;
         } else {
             query.prepare("INSERT INTO CATEGORIE(NomCategorie, SeuilCategorie) SELECT :nom, :seuil WHERE NOT EXISTS (SELECT 1 FROM CATEGORIE WHERE NomCategorie = :nom)");
@@ -95,15 +94,23 @@ void InsertCategory::on_InsertCategoryBtn_clicked()
         }
     } else {
         query.prepare("INSERT INTO CATEGORIE(NomCategorie) SELECT :nom WHERE NOT EXISTS (SELECT 1 FROM CATEGORIE WHERE NomCategorie = :nom)");
-            query.bindValue(":nom", category);
+        query.bindValue(":nom", category);
     }
 
     if (query.exec()) {
-        this->close();
+        if (query.numRowsAffected() > 0) {
+            this->close();
+        } else {
+//            QMessageBox msgBox;
+//            msgBox.setStyleSheet("color: black;"); // Set text color to black
+//            msgBox.critical(this, "Error", " .");
+            error(); //Already Existing Category
+        }
     } else {
         return;
     }
 }
+
 
 void InsertCategory::error(){
     InsertCategoryUi->CategoryName->clear();
