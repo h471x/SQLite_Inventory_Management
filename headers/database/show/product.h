@@ -2,6 +2,7 @@
 #define PRODUCT_H
 
 #include "headers/database/init/dbinit.h"
+#include "headers/database/show/table.h"
 
 class ProductShow : public QWidget
 {
