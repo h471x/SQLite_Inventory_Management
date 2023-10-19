@@ -30,6 +30,7 @@ private slots:
     void on_FlowsBtn_clicked();
     void on_OptionsBtn_clicked();
     void on_HelpBtn_clicked();
+    void reloadHistory();
 
     void on_LightBtn_clicked();
 
