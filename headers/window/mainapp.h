@@ -9,6 +9,7 @@
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
 #include "headers/window/insertuser.h"
+#include "headers/window/insertprovider.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainApp; }
@@ -45,6 +46,8 @@ private slots:
     void on_UserBtn_clicked();
 
     void on_SearchBtn_clicked();
+
+    void on_ProviderBtn_clicked();
 
 private: //ui
     Ui::MainApp *MainUi;
