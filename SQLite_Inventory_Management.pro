@@ -26,6 +26,7 @@ SOURCES += \
     sources/window/inscategory.cpp \
     sources/window/insertuser.cpp \
     sources/window/insproduct.cpp \
+    sources/window/insertprovider.cpp \
     sources/window/login.cpp \
     sources/window/main.cpp \
     sources/window/mainapp.cpp
@@ -42,6 +43,7 @@ HEADERS += \
     headers/database/init/triggerup.h \
     headers/database/init/triggerdown.h \
     headers/window/inscategory.h \
+    headers/window/insertprovider.h \
     headers/window/mainapp.h \
     headers/window/login.h \
     headers/window/insproduct.h \
@@ -55,7 +57,8 @@ FORMS += \
     forms/mainapp.ui \
     forms/login.ui \
     forms/insproduct.ui \
-    forms/insertuser.ui
+    forms/insertuser.ui \
+    forms/insertprovider.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
