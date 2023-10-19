@@ -56,6 +56,10 @@ void MainApp::home(){
         product.showProduct(tableWidget);
         history.showHistory(MainUi->findWidget);
         available.showAvailable(MainUi->availableWidget);
+        adminShow.showAdmin(MainUi->adminWidget);
+        categoryShow.showCategory(MainUi->categoryWidget);
+        providerShow.showProvider(MainUi->providerWidget);
+       userShow.showUser(MainUi->userWidget);
 
     } else {
         tableWidget->horizontalHeader()->setVisible(false);
