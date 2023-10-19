@@ -55,6 +55,7 @@ void MainApp::home(){
 
         product.showProduct(tableWidget);
         history.showHistory(MainUi->findWidget);
+        available.showAvailable(MainUi->availableWidget);
 
     } else {
         tableWidget->horizontalHeader()->setVisible(false);
