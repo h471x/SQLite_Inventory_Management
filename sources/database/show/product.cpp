@@ -1,4 +1,3 @@
-#include "headers/database/show/table.h"
 #include "headers/database/show/product.h"
 
 ProductShow::ProductShow(){}
