@@ -95,11 +95,13 @@ void Login::on_LoginBtn_clicked(){
 
 void Login::success(){
     provider.initProvider();
-    user.initUser();    
+    user.initUser();
+    history.initHistory();
     category.initCategory();
     product.tableProduct();
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
+    triggersave.initTriggerSave();
 //    product.valueProduct();
 
     isLoggedIn = true; // Set the login boolean
