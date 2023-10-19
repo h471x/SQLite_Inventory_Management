@@ -9,6 +9,7 @@
 #include "headers/database/show/available.h"
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
+#include "headers/window/lendproduct.h"
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
 
@@ -33,24 +34,18 @@ private slots:
     void on_OptionsBtn_clicked();
     void on_HelpBtn_clicked();
     void reloadHistory();
-
     void on_LightBtn_clicked();
-
     void on_LightBtn_2_clicked();
-
     void on_NotifBtn_clicked();
-
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_UserBtn_clicked();
-
     void on_SearchBtn_clicked();
-
     void on_ProviderBtn_clicked();
+    void on_AvailableBtn_clicked();  
+    void on_LendBtn_clicked();
 
-    void on_AvailableBtn_clicked();
+    void on_ReturnBtn_clicked();
 
 private: //ui
     Ui::MainApp *MainUi;
@@ -82,6 +77,7 @@ private: //data from database classes
     AvailableShow available;
 
 private: //table widget
+    QString getIdProduct();
 
 
 };
