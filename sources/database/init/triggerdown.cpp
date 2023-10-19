@@ -1,5 +1,4 @@
 #include "headers/database/init/triggerdown.h"
-#include <QDebug>
 
 TriggerDownInit::TriggerDownInit(){}
 
