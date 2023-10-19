@@ -28,6 +28,7 @@ private: //object instances
 
 private:
     void keyConfig();
+    void error();
     void keyPressEvent(QKeyEvent *event) override;
 
 private: //variables
