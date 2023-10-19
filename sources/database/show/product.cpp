@@ -1,23 +1,10 @@
+#include "headers/database/show/table.h"
 #include "headers/database/show/product.h"
 
 ProductShow::ProductShow(){}
 
-class CustomSqlTableModel : public QSqlTableModel {
-public:
-    CustomSqlTableModel(QObject *parent, QSqlDatabase db = QSqlDatabase())
-        : QSqlTableModel(parent, db) {}
-
-    void setQuery(const QString &query) {
-        QSqlQuery q;
-        q.prepare(query);
-        if (q.exec()) {
-            QSqlTableModel::setQuery(q);
-        }
-    }
-};
-
 void ProductShow::showProduct(QTableWidget* productTable){
-    CustomSqlTableModel* model = new CustomSqlTableModel(this, mydb);
+    TableView* model = new TableView(this, mydb);
     QString query = "SELECT IdMateriel as ID, NomMateriel as Nom, Marque, Etat, DEnregistrement as Date FROM MATERIEL;";
     model->setQuery(query);
     model->select();
@@ -95,12 +82,11 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
      }
 
      for (int column = 0; column < tableColumnCount; ++column) {
-         int selectedColumn = selectedColumns[column];
-         QTableWidgetItem* headerItem = new QTableWidgetItem(model->headerData(selectedColumn, Qt::Horizontal).toString());
+         QTableWidgetItem* headerItem = new QTableWidgetItem(model->headerData(column, Qt::Horizontal).toString());
          productTable->setHorizontalHeaderItem(column, headerItem);
 
          for (int row = 0; row < tableRowCount; ++row) {
-             QModelIndex index = model->index(row, selectedColumn);
+             QModelIndex index = model->index(row, column);
              QString data = model->data(index).toString();
              QTableWidgetItem* item = new QTableWidgetItem(data);
              productTable->setItem(row, column, item);
