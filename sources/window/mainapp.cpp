@@ -49,8 +49,10 @@ void MainApp::home(){
         tableWidget->horizontalHeader()->setFont(tableFont);
         tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         tableWidget->setVisible(true);
-//        product.showProduct(tableWidget);
-        product.showProduct(MainUi->findWidget);
+
+        product.showProduct(tableWidget);
+        history.showHistory(MainUi->findWidget);
+
     } else {
         tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->verticalHeader()->setVisible(false);
@@ -264,5 +266,23 @@ void MainApp::on_pushButton_2_clicked()
     productInsert->setModal(true);
     productInsert->show();
     MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+
+void MainApp::on_UserBtn_clicked()
+{
+    InsertUser *userInsert = new InsertUser();
+    userInsert->setModal(true);
+    userInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+
+void MainApp::on_SearchBtn_clicked()
+{
+    MainUi->findWidget->clear();
+    MainUi->findWidget->setRowCount(0); // Supprime les lignes
+    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
+    history.showHistory(MainUi->findWidget);
 }
 
