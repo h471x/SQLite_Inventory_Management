@@ -1,0 +1,12 @@
+#include "headers/database/init/triggerreturn.h"
+
+TriggerReturnInit::TriggerReturnInit(){}
+
+void TriggerReturnInit::initTriggerReturn(){
+    TriggerReturnCreate();
+}
+
+void TriggerReturnInit::TriggerReturnCreate(){
+    QSqlQuery query;
+    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteRemise AFTER UPDATE ON MATERIEL WHEN NEW.Emprunter = 0 BEGIN INSERT INTO REQUETE ('TypeRequete','DHRequete','UsernameAdmin','UsernameUtilisateur','NomMateriel') VALUES ('Remise',datetime('now','localtime'),NEW.UsernameAdmin,NEW.UsernameUtilisateur,NEW.NomMateriel); END;");
+}
