@@ -85,6 +85,78 @@ void MainApp::help(){
     // load help contents
 };
 
+void MainApp::on_NotifBtn_clicked()
+{
+      QTableWidget* tableWidget = MainUi->homeWidget;
+//    QSqlQuery query;
+//    query.prepare("DELETE FROM MATERIEL;");
+//    query.exec();
+
+    tableWidget->clear(); // Supprime le contenu des cellules
+    tableWidget->setRowCount(0); // Supprime les lignes
+    tableWidget->setColumnCount(0); // Supprime les colonnes
+    home();
+}
+
+void MainApp::removeStyleSheet()
+{
+    MainUi->HomeBtn->setStyleSheet("");
+    MainUi->MenuBtn->setStyleSheet("");
+    MainUi->AdminBtn->setStyleSheet("");
+    MainUi->FindBtn->setStyleSheet("");
+    MainUi->FlowsBtn->setStyleSheet("");
+    MainUi->OptionsBtn->setStyleSheet("");
+    MainUi->HelpBtn->setStyleSheet("");
+}
+
+void MainApp::reloadHistory()
+{
+    MainUi->findWidget->clear();
+    MainUi->findWidget->setRowCount(0); // Supprime les lignes
+    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
+    history.showHistory(MainUi->findWidget);
+}
+
+void MainApp::on_pushButton_clicked()
+{
+    InsertCategory *categoryInsert = new InsertCategory();
+    categoryInsert->setModal(true);
+    categoryInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+void MainApp::on_pushButton_2_clicked()
+{
+    InsertProduct *productInsert = new InsertProduct();
+    productInsert->setModal(true);
+    productInsert->show();
+    connect(productInsert, &QDialog::finished, this, &MainApp::reloadHistory);
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+void MainApp::on_UserBtn_clicked()
+{
+    InsertUser *userInsert = new InsertUser();
+    userInsert->setModal(true);
+    userInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+void MainApp::on_SearchBtn_clicked()
+{
+    MainUi->findWidget->clear();
+    MainUi->findWidget->setRowCount(0); // Supprime les lignes
+    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
+    history.showHistory(MainUi->findWidget);
+}
+
+void MainApp::on_ProviderBtn_clicked()
+{
+    InsertProvider *providerInsert = new InsertProvider();
+    providerInsert->setModal(true);
+    providerInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
 
 void MainApp::on_LightBtn_clicked()
 {
@@ -150,7 +222,6 @@ void MainApp::on_LightBtn_clicked()
     tableWidget->setColumnCount(0); // Supprime les colonnes
     home();
 }
-
 
 void MainApp::on_LightBtn_2_clicked()
 {
@@ -224,73 +295,5 @@ void MainApp::on_LightBtn_2_clicked()
     tableWidget->setColumnCount(0); // Supprime les colonnes
     home();
 
-}
-
-
-void MainApp::on_NotifBtn_clicked()
-{
-      QTableWidget* tableWidget = MainUi->homeWidget;
-//    QSqlQuery query;
-//    query.prepare("DELETE FROM MATERIEL;");
-//    query.exec();
-
-    tableWidget->clear(); // Supprime le contenu des cellules
-    tableWidget->setRowCount(0); // Supprime les lignes
-    tableWidget->setColumnCount(0); // Supprime les colonnes
-    home();
-}
-
-void MainApp::removeStyleSheet()
-{
-    MainUi->HomeBtn->setStyleSheet("");
-    MainUi->MenuBtn->setStyleSheet("");
-    MainUi->AdminBtn->setStyleSheet("");
-    MainUi->FindBtn->setStyleSheet("");
-    MainUi->FlowsBtn->setStyleSheet("");
-    MainUi->OptionsBtn->setStyleSheet("");
-    MainUi->HelpBtn->setStyleSheet("");
-}
-
-void MainApp::reloadHistory()
-{
-    MainUi->findWidget->clear();
-    MainUi->findWidget->setRowCount(0); // Supprime les lignes
-    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
-    history.showHistory(MainUi->findWidget);
-}
-
-void MainApp::on_pushButton_clicked()
-{
-    InsertCategory *categoryInsert = new InsertCategory();
-    categoryInsert->setModal(true);
-    categoryInsert->show();
-    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
-}
-
-
-void MainApp::on_pushButton_2_clicked()
-{
-    InsertProduct *productInsert = new InsertProduct();
-    productInsert->setModal(true);
-    productInsert->show();
-    connect(productInsert, &QDialog::finished, this, &MainApp::reloadHistory);
-    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
-}
-
-
-void MainApp::on_UserBtn_clicked()
-{
-    InsertUser *userInsert = new InsertUser();
-    userInsert->setModal(true);
-    userInsert->show();
-    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
-}
-
-void MainApp::on_SearchBtn_clicked()
-{
-    MainUi->findWidget->clear();
-    MainUi->findWidget->setRowCount(0); // Supprime les lignes
-    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
-    history.showHistory(MainUi->findWidget);
 }
 
