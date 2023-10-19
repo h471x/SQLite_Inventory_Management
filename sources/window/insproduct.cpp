@@ -36,7 +36,8 @@ void InsertProduct::on_pushButton_clicked()
     query.bindValue(":fournisseur", fournisseur);
     query.bindValue(":admin", admin);
     if(query.exec()){
-         this->close();
+        this->close();
+//        history.showHistory(MainUi->findWidget);
     }else{
         qDebug() << "Insert error : " << query.lastError();
     }
