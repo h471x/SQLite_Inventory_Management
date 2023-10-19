@@ -29,13 +29,13 @@ void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
 
 void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet();home();}
-void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();}
-void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();};
-void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();};
-void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();};
-void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();}
-void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();};
-void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();};
+void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();home();}
+void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();home();};
+void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();home();};
+void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();};
+void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();}
+void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();};
+void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();home();};
 
 
 void MainApp::home(){
@@ -109,6 +109,7 @@ void MainApp::removeStyleSheet()
     MainUi->AdminBtn->setStyleSheet("");
     MainUi->FindBtn->setStyleSheet("");
     MainUi->FlowsBtn->setStyleSheet("");
+    MainUi->AvailableBtn->setStyleSheet("");
     MainUi->OptionsBtn->setStyleSheet("");
     MainUi->HelpBtn->setStyleSheet("");
 }
@@ -176,6 +177,49 @@ void MainApp::on_ProviderBtn_clicked()
     providerInsert->setModal(true);
     providerInsert->show();
     MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+QString MainApp::getIdProduct(){
+    // Get the currently selected item
+    QTableWidgetItem* selectedItem = MainUi->availableWidget->currentItem();
+
+    if (selectedItem) {
+        // Get the row index of the selected item
+        int selectedRow = MainUi->availableWidget->row(selectedItem);
+
+        // Get the data of the row where the cell is
+        QString rowData = MainUi->availableWidget->item(selectedRow, 0)->text();
+        return rowData;
+    } else {
+        return "";
+    }
+}
+
+void MainApp::on_LendBtn_clicked() {
+    QString idMateriel = getIdProduct();
+
+    LendProduct *lendProduct = new LendProduct(idMateriel);
+    lendProduct->setModal(true);
+
+    // Connect the finished signal of lendProduct to the home slot of MainApp
+    connect(lendProduct, &LendProduct::finished, this, &MainApp::home);
+
+    lendProduct->show();
+    MainUi->AvailableBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+void MainApp::on_ReturnBtn_clicked()
+{
+    QString idMateriel2 = "return";
+
+    LendProduct *returnProduct = new LendProduct(idMateriel2);
+    returnProduct->setModal(true);
+
+    // Connect the finished signal of lendProduct to the home slot of MainApp
+    connect(returnProduct, &LendProduct::finished, this, &MainApp::home);
+
+    returnProduct->show();
+    MainUi->AvailableBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
 void MainApp::on_LightBtn_clicked()
@@ -316,7 +360,4 @@ void MainApp::on_LightBtn_2_clicked()
     home();
 
 }
-
-
-
 
