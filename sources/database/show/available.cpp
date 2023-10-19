@@ -34,29 +34,29 @@ void AvailableShow::setStyleAvailable(QTableWidget* availableTable, int tableCol
     availableTable->setStyleSheet("QTableWidget::item:selected { background-color: #d4d8e2; color: #000; }");
 
       // Add The Actions columns within the table widget
-    availableTable->setColumnCount(tableColumnCount + 1);
-    availableTable->setHorizontalHeaderItem(tableColumnCount, new QTableWidgetItem("Actions"));
-    availableTable->setAlternatingRowColors(true);
+//    availableTable->setColumnCount(tableColumnCount + 1);
+//    availableTable->setHorizontalHeaderItem(tableColumnCount, new QTableWidgetItem("Actions"));
+//    availableTable->setAlternatingRowColors(true);
 
     for (int row = 0; row < availableTable->rowCount(); ++row) {
-        int actionsColumn = tableColumnCount;
+//        int actionsColumn = tableColumnCount;
 
-        QPushButton *lendBtn = new QPushButton("  Lend", availableTable);
-        lendBtn->setObjectName("actionButton");
-        lendBtn->setIcon(QIcon(":/icons/icons/black/add.png"));
-        lendBtn->setIconSize(QSize(30, 30));
-        lendBtn->setFocusPolicy(Qt::NoFocus);
-        availableTable->setCellWidget(row, actionsColumn, lendBtn);
+//        QPushButton *lendBtn = new QPushButton("  Lend", availableTable);
+//        lendBtn->setObjectName("actionButton");
+//        lendBtn->setIcon(QIcon(":/icons/icons/black/add.png"));
+//        lendBtn->setIconSize(QSize(30, 30));
+//        lendBtn->setFocusPolicy(Qt::NoFocus);
+//        availableTable->setCellWidget(row, actionsColumn, lendBtn);
 
-        QFont actionFont;
-        lendBtn->setCursor(QCursor(Qt::PointingHandCursor));
-        actionFont.setPointSize(9);
-        lendBtn->setFont(actionFont);
+//        QFont actionFont;
+//        lendBtn->setCursor(QCursor(Qt::PointingHandCursor));
+//        actionFont.setPointSize(9);
+//        lendBtn->setFont(actionFont);
 
         availableTable->setRowHeight(row, 60);
 
-        if (row % 2 == 0) {lendBtn->setStyleSheet("background-color: #c5cad6;");}
-        else {lendBtn->setStyleSheet("background-color: #a2a6ae;");}
+//        if (row % 2 == 0) {lendBtn->setStyleSheet("background-color: #c5cad6;");}
+//        else {lendBtn->setStyleSheet("background-color: #a2a6ae;");}
     }
 
     for (int column = 0; column < tableColumnCount; ++column) {
