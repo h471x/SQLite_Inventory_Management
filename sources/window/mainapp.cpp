@@ -27,7 +27,7 @@ void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
 
-void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet();}
+void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet();home();}
 void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();}
 void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();};
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();};
