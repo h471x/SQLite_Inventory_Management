@@ -1,0 +1,12 @@
+#include "headers/database/init/triggerlend.h"
+
+TriggerLendInit::TriggerLendInit(){}
+
+void TriggerLendInit::initTriggerLend(){
+    TriggerLendCreate();
+}
+
+void TriggerLendInit::TriggerLendCreate(){
+    QSqlQuery query;
+    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteEmprunt AFTER UPDATE ON MATERIEL WHEN NEW.Emprunter = 1 BEGIN INSERT INTO REQUETE ('TypeRequete','DHRequete','UsernameAdmin','UsernameUtilisateur','NomMateriel') VALUES ('Emprunt',datetime('now','localtime'),NEW.UsernameAdmin,NEW.UsernameUtilisateur,NEW.NomMateriel); END;");
+}
