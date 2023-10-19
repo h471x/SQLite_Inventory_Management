@@ -14,8 +14,10 @@
 #include "headers/database/init/dbcategory.h"
 #include "headers/database/init/dbproduct.h"
 #include "headers/database/init/dbuser.h"
+#include "headers/database/init/dbhistory.h"
 #include "headers/database/init/triggerup.h"
 #include "headers/database/init/triggerdown.h"
+#include "headers/database/init/triggersave.h"
 
 namespace Ui {
 class Login;
@@ -52,8 +54,10 @@ private: //db classes Instances
     ProductInit product;
     ProviderInit provider;
     UserInit user;
+    HistoryInit history;
     TriggerUpInit triggerup;
     TriggerDownInit triggerdown;
+    TriggerSaveInit triggersave;
     QSqlQuery query;
 
 };
