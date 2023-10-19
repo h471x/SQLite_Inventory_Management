@@ -11,6 +11,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 SOURCES += \
+    sources/database/show/admin.cpp \
+    sources/database/show/category.cpp \
+    sources/database/show/provider.cpp \
+    sources/database/show/user.cpp \
     sources/window/returnproduct.cpp \
     sources/database/init/dbhistory.cpp \
     sources/database/init/dbcategory.cpp \
@@ -60,7 +64,11 @@ HEADERS += \
     headers/database/show/history.h \
     headers/database/show/table.h \
     headers/database/show/available.h \
-    headers/window/returnproduct.h
+    headers/window/returnproduct.h \
+    headers/database/show/admin.h \
+    headers/database/show/category.h \
+    headers/database/show/provider.h \
+    headers/database/show/user.h
 
 
 
