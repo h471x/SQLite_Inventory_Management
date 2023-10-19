@@ -49,6 +49,8 @@ private slots:
 
     void on_ProviderBtn_clicked();
 
+    void on_AvailableBtn_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
@@ -59,6 +61,7 @@ public: //Methods
     void focusAdmin();
     void focusFind();
     void focusFlows();
+    void focusAvailable();
     void focusOptions();
     void focusHelp();
     void removeStyleSheet();
