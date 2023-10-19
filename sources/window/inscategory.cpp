@@ -72,32 +72,45 @@ void InsertCategory::on_InsertCategoryBtn_clicked()
     QString category = InsertCategoryUi->CategoryName->text();
     QString seuil = InsertCategoryUi->Threshold->text();
 
-    if (category.isEmpty() || (category.isEmpty() && seuil.isEmpty())) {
-        InsertCategoryUi->CategoryName->clear();
-        InsertCategoryUi->Threshold->clear();
-        setRedBorderCategory(InsertCategoryUi->CategoryName);
-        setRedBorderCategory(InsertCategoryUi->Threshold);
-        InsertCategoryUi->CategoryName->setFocus();
-        return;
-    }
+    bool isSeuilEmpty = seuil.isEmpty();
+    bool isCategoryEmpty = category.isEmpty();
 
-    if(seuil.isEmpty()){
-        query.prepare("INSERT OR IGNORE INTO CATEGORIE(NomCategorie) VALUES(:nom)");
-        query.bindValue(":nom", category);
-    }else{
-        int threshold = seuil.toInt();
-        query.prepare("INSERT OR IGNORE INTO CATEGORIE(NomCategorie, SeuilCategorie) VALUES(:nom, :seuil)");
-        query.bindValue(":nom", category);
-        query.bindValue(":seuil", threshold);
+    if (isSeuilEmpty && isCategoryEmpty) {
+        error();
+        return;
+    } else if (isCategoryEmpty) {
+        error(); //category must not be empty
+        return;
+    } else if (!isSeuilEmpty) {
+        bool isSeuilNumber;
+        int threshold = seuil.toInt(&isSeuilNumber);
+
+        if (!isSeuilNumber) {
+            error(); //seuil must be a number
+            return;
+        } else {
+            query.prepare("INSERT INTO CATEGORIE(NomCategorie, SeuilCategorie) SELECT :nom, :seuil WHERE NOT EXISTS (SELECT 1 FROM CATEGORIE WHERE NomCategorie = :nom)");
+            query.bindValue(":nom", category);
+            query.bindValue(":seuil", threshold);
+        }
+    } else {
+        query.prepare("INSERT INTO CATEGORIE(NomCategorie) SELECT :nom WHERE NOT EXISTS (SELECT 1 FROM CATEGORIE WHERE NomCategorie = :nom)");
+            query.bindValue(":nom", category);
     }
 
     if (query.exec()) {
         this->close();
-//        MainApp *app = new MainApp();
-//        app->focusMenu();
     } else {
-        QMessageBox::critical(this, "Error", "Failed to insert data into the database.");
+        return;
     }
+}
+
+void InsertCategory::error(){
+    InsertCategoryUi->CategoryName->clear();
+    InsertCategoryUi->Threshold->clear();
+    setRedBorderCategory(InsertCategoryUi->CategoryName);
+    setRedBorderCategory(InsertCategoryUi->Threshold);
+    InsertCategoryUi->CategoryName->setFocus();
 }
 
 
