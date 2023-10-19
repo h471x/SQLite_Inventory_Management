@@ -215,7 +215,7 @@ QTableWidget QScrollBar:Vertical{
             </layout>
            </widget>
           </item>
-          <item alignment="Qt::AlignTop">
+          <item>
            <widget class="QFrame" name="HomeFrame">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -300,11 +300,11 @@ QTableWidget QScrollBar:Vertical{
                 <string>Find Users / Materials</string>
                </property>
                <property name="text">
-                <string>     Find</string>
+                <string>     History</string>
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/black/find.png</normaloff>:/icons/icons/black/find.png</iconset>
+                 <normaloff>:/icons/icons/black/save.png</normaloff>:/icons/icons/black/save.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -328,6 +328,23 @@ QTableWidget QScrollBar:Vertical{
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
                  <normaloff>:/icons/icons/black/flows.png</normaloff>:/icons/icons/black/flows.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>48</width>
+                 <height>48</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="AvailableBtn">
+               <property name="text">
+                <string>  Available   </string>
+               </property>
+               <property name="icon">
+                <iconset resource="../resources/resources.qrc">
+                 <normaloff>:/icons/icons/black/ok.png</normaloff>:/icons/icons/black/ok.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -389,7 +406,7 @@ QTableWidget QScrollBar:Vertical{
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>    Options   </string>
+                <string>    Options </string>
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
@@ -453,7 +470,7 @@ QTableWidget QScrollBar:Vertical{
        <item row="0" column="0">
         <widget class="QStackedWidget" name="Content">
          <property name="currentIndex">
-          <number>1</number>
+          <number>5</number>
          </property>
          <widget class="QWidget" name="HomePage">
           <layout class="QHBoxLayout" name="horizontalLayout">
@@ -973,7 +990,7 @@ QTableWidget QScrollBar:Vertical{
                  <item>
                   <widget class="QLabel" name="title_2">
                    <property name="text">
-                    <string>Search Materials : </string>
+                    <string>History of Materials : </string>
                    </property>
                   </widget>
                  </item>
@@ -1000,7 +1017,7 @@ QTableWidget QScrollBar:Vertical{
                    </property>
                    <property name="icon">
                     <iconset resource="../resources/resources.qrc">
-                     <normaloff>:/icons/icons/black/find.png</normaloff>:/icons/icons/black/find.png</iconset>
+                     <normaloff>:/icons/icons/black/reload.png</normaloff>:/icons/icons/black/reload.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1193,6 +1210,21 @@ QTableWidget QScrollBar:Vertical{
            </property>
            <property name="text">
             <string>Flows Page</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="AvailablePage">
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>120</y>
+             <width>291</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Available Page</string>
            </property>
           </widget>
          </widget>
