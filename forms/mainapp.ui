@@ -453,7 +453,7 @@ QTableWidget QScrollBar:Vertical{
        <item row="0" column="0">
         <widget class="QStackedWidget" name="Content">
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="HomePage">
           <layout class="QHBoxLayout" name="horizontalLayout">
@@ -907,7 +907,7 @@ QTableWidget QScrollBar:Vertical{
                      </size>
                     </property>
                    </widget>
-                   <widget class="QPushButton" name="pushButton_4">
+                   <widget class="QPushButton" name="ProviderBtn">
                     <property name="geometry">
                      <rect>
                       <x>0</x>
