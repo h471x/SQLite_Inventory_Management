@@ -33,8 +33,32 @@ void UserShow::setStyleUser(QTableWidget* userTable, int tableColumnCount, int t
     userTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     userTable->setStyleSheet("QTableWidget::item:selected { background-color: #d4d8e2; color: #000; }");
 
+    // Add The Actions columns within the table widget
+    userTable->setColumnCount(tableColumnCount + 1);
+    userTable->setHorizontalHeaderItem(tableColumnCount, new QTableWidgetItem("Actions"));
+    userTable->setAlternatingRowColors(true);
+
     for (int row = 0; row < userTable->rowCount(); ++row) {
+        int actionsColumn = tableColumnCount;
+
+        QPushButton *deleteUserBtn = new QPushButton(userTable);
+        deleteUserBtn->setObjectName("actionButton");
+        deleteUserBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
+        deleteUserBtn->setIconSize(QSize(30, 30));
+        deleteUserBtn->setFocusPolicy(Qt::NoFocus);
+        userTable->setCellWidget(row, actionsColumn, deleteUserBtn);
+
+        QFont actionFont;
+        deleteUserBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        actionFont.setPointSize(9);
+        deleteUserBtn->setFont(actionFont);
+
         userTable->setRowHeight(row, 60);
+
+        deleteUser(userTable, deleteUserBtn);
+
+        if (row % 2 == 0) {deleteUserBtn->setStyleSheet("background-color: #c5cad6;");}
+        else {deleteUserBtn->setStyleSheet("background-color: #a2a6ae;");}
     }
 
     for (int column = 0; column < tableColumnCount; ++column) {
@@ -51,4 +75,52 @@ void UserShow::setStyleUser(QTableWidget* userTable, int tableColumnCount, int t
             }
         }
     }
+}
+
+QString UserShow::selectUser(QTableWidget* userTable) {
+    // Get the currently selected item
+    QTableWidgetItem* selectedItem = userTable->currentItem();
+
+    if (selectedItem) {
+        // Get the row index of the selected item
+        int selectedRow = userTable->row(selectedItem);
+
+        // Get the data of the row where the cell is
+        QString rowData = userTable->item(selectedRow, 0)->text();
+        return rowData;
+    } else {
+        return "";
+    }
+}
+
+void UserShow::deleteUser(QTableWidget* userTable, QPushButton* deleteUserBtn){
+    connect(deleteUserBtn, &QPushButton::clicked, this, [this, userTable]() {
+        QString id = selectUser(userTable);
+
+        if (!id.isEmpty()) {
+            // Display the confirmation dialog
+            QMessageBox msgBox;
+            msgBox.setText(" Are you sure?");
+            msgBox.setWindowTitle(" Confirm Deletion");
+            msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            msgBox.setFocusPolicy(Qt::NoFocus);
+
+            msgBox.setFixedSize(300, 300); // Fix the size
+
+            int confirmResult = msgBox.exec();
+
+            if (confirmResult == QMessageBox::Yes) {
+                QSqlQuery query;
+                query.prepare("DELETE FROM UTILISATEUR WHERE UsernameUtilisateur = :usr;");
+                query.bindValue(":usr", id);
+                query.exec();
+                userTable->clear();
+                userTable->setRowCount(0);
+                userTable->setColumnCount(0);
+                showUser(userTable);
+            } else {
+                // User clicked "No", do nothing
+            }
+        }
+    });
 }
