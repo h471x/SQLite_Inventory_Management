@@ -23,7 +23,7 @@ void MainApp::on_HomeBtn_clicked(){ focusHome(); }
 void MainApp::on_MenuBtn_clicked(){ focusMenu(); }
 void MainApp::on_AdminBtn_clicked(){ focusAdmin(); }
 void MainApp::on_FindBtn_clicked(){ focusFind(); }
-void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
+//void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
 void MainApp::on_AvailableBtn_clicked(){ focusAvailable(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
@@ -32,7 +32,7 @@ void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet()
 void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();home();}
 void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();home();};
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();home();};
-void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();};
+//void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();};
 void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();}
 void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();};
 void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();home();};
@@ -112,7 +112,7 @@ void MainApp::removeStyleSheet()
     MainUi->MenuBtn->setStyleSheet("");
     MainUi->AdminBtn->setStyleSheet("");
     MainUi->FindBtn->setStyleSheet("");
-    MainUi->FlowsBtn->setStyleSheet("");
+//    MainUi->FlowsBtn->setStyleSheet("");
     MainUi->AvailableBtn->setStyleSheet("");
     MainUi->OptionsBtn->setStyleSheet("");
     MainUi->HelpBtn->setStyleSheet("");
