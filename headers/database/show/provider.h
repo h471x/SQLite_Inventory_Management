@@ -13,14 +13,14 @@ public: //Constructor
 public: //Method
     void showProvider(QTableWidget* providerTable);
     void setStyleProvider(QTableWidget* providerTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model);
-//    void AvailablebtnConfig();
+    void deleteProvider(QTableWidget* providerTable, QPushButton* deleteProviderBtn);
 
 private: //Object Instance
     QSqlDatabase mydb;
 
 private: //actions buttons
     QFont tableFont;
-    // QString handleLend(QTableWidget* productTable);
+    QString selectProvider(QTableWidget* providerTable);
 
 };
 
