@@ -16,6 +16,7 @@
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
 #include "headers/window/insertadmin.h"
+#include "headers/window/pdfsave.h"
 #include "headers/database/show/admin.h"
 #include "headers/database/show/category.h"
 #include "headers/database/show/provider.h"
@@ -47,20 +48,16 @@ private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_UserBtn_clicked();
-    void on_SearchBtn_clicked();
+//    void on_SearchBtn_clicked();
     void on_ProviderBtn_clicked();
     void on_AvailableBtn_clicked();  
     void on_LendBtn_clicked();
     void on_ReturnBtn_clicked();
     void on_newAdmin_clicked();
     void on_PanneBtn_clicked();
-
     void on_locationBtn_clicked();
-
     void on_saveHistoryBtn_clicked();
-
     void on_deleteHistoryBtn_clicked();
-
     void on_saveProductBtn_clicked();
 
 private: //ui
