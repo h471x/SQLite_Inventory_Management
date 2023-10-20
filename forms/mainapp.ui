@@ -475,7 +475,7 @@ QTableWidget QScrollBar:Vertical{
        <item row="0" column="0">
         <widget class="QStackedWidget" name="Content">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="HomePage">
           <layout class="QHBoxLayout" name="horizontalLayout">
@@ -532,6 +532,26 @@ QTableWidget QScrollBar:Vertical{
                     </size>
                    </property>
                   </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="saveProductBtn">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources/resources.qrc">
+                     <normaloff>:/icons/icons/black/save.png</normaloff>:/icons/icons/black/save.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>40</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
                  </item>
                  <item>
                   <widget class="QPushButton" name="NotifBtn">
@@ -1887,7 +1907,7 @@ QTableWidget QScrollBar:Vertical{
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="SearchBtn">
+                  <widget class="QPushButton" name="saveHistoryBtn">
                    <property name="focusPolicy">
                     <enum>Qt::NoFocus</enum>
                    </property>
@@ -1896,12 +1916,32 @@ QTableWidget QScrollBar:Vertical{
                    </property>
                    <property name="icon">
                     <iconset resource="../resources/resources.qrc">
-                     <normaloff>:/icons/icons/black/reload.png</normaloff>:/icons/icons/black/reload.png</iconset>
+                     <normaloff>:/icons/icons/black/save.png</normaloff>:/icons/icons/black/save.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
-                     <width>45</width>
-                     <height>45</height>
+                     <width>40</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="deleteHistoryBtn">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources/resources.qrc">
+                     <normaloff>:/icons/icons/black/delete.png</normaloff>:/icons/icons/black/delete.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>40</width>
+                     <height>40</height>
                     </size>
                    </property>
                   </widget>
