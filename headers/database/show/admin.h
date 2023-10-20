@@ -14,6 +14,7 @@ public: //Method
     void showAdmin(QTableWidget* adminTable);
     void setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model);
 //    void AvailablebtnConfig();
+    void deleteAdmin(QTableWidget* adminTable, QPushButton* deleteAdminBtn);
 
 private: //Object Instance
     QSqlDatabase mydb;
@@ -21,6 +22,7 @@ private: //Object Instance
 private: //actions buttons
     QFont tableFont;
     // QString handleLend(QTableWidget* productTable);
+    QString selectAdmin(QTableWidget* adminTable);
 
 };
 
