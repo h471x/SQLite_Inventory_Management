@@ -37,7 +37,8 @@ InsertProduct::~InsertProduct()
 
 void InsertProduct::on_pushButton_clicked()
 {
-    QDate currentDate = QDate::currentDate();
+    QDate date = QDate::currentDate();
+    QString currentDate = date.toString("dd/MM/yyyy");
     QString nom = InsertProductUi->nom->text();
     QString marque = InsertProductUi->marque->text();
     QString etat = InsertProductUi->etat->currentText();
