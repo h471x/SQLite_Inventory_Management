@@ -1,0 +1,40 @@
+
+
+			   BIENVENUE DANS LA DOCUMENTATION DE IT INVENTORY MANAGEMENT
+
+
+    Bien que cette application a été conçue pour faciliter la gestion des matériels informatiques,
+    son utilisation reste assez complexe et peut avoir quelques erreurs 
+    si les transactions ne sont pas faites dans une ordre bien précis.
+
+    Veuillez donc lire attentivement cette documentation avant de l'utiliser.
+
+
+Cette application peut faire 4 transactions sur un matériel soit l'enregistrer ,le supprimer ,l'emprunter ,la rendre (attention un matériel doit etre  déjà enregistré avant de faire l'une des trois dernières transaction cités auparavant) par conséquant certains élements doivent etre présent ou déjà enregistrés pour faire une transaction.
+
+
+
+Voici donc, les instructions pour pouvoir faire chaque transaction:
+    Enregistrer :
+     Pour pouvoir enregistrer un matériel les éléments qui doivent etre présents sont:
+        -La Categorie où classer le matériel
+        -Le compte Admin qui enregistre le matériel
+
+      *La création d'une Categorie et d'un compte administrateur s'ils n'existent sera donc une priorité avant d'enregistrer un matériel
+
+
+    Supprimer:
+    -----------vide---------
+
+
+    Emprunter:
+    Pour pouvoir emprunter un matériel les éléments nécessaire sont:
+        -Un compte Utilisateur
+
+    Rendre:
+    --------vide----------
+
+Remarques:-Certains transactions peuvent demander l'authentification du compte administrateur.
+
+
+ATTENTION :Veuillez pas supprimer n'importe quoi parce que cette application utilise une base données relationnelle ce qui veut dire que les tables sont liés entre eux par exemple la suppression d'une catégorie engendre la suppression des matériels qui sont classés dans cette catégorie
