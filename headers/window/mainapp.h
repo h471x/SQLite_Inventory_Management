@@ -55,6 +55,8 @@ private slots:
     void on_newAdmin_clicked();
     void on_PanneBtn_clicked();
 
+    void on_locationBtn_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
