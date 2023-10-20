@@ -13,6 +13,7 @@
 #include "headers/window/returnproduct.h"
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
+#include "headers/window/insertadmin.h"
 #include "headers/database/show/admin.h"
 #include "headers/database/show/category.h"
 #include "headers/database/show/provider.h"
@@ -51,6 +52,8 @@ private slots:
     void on_LendBtn_clicked();
 
     void on_ReturnBtn_clicked();
+
+    void on_newAdmin_clicked();
 
 private: //ui
     Ui::MainApp *MainUi;
