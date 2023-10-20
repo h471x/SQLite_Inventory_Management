@@ -59,7 +59,7 @@ void MainApp::home(){
         adminShow.showAdmin(MainUi->adminWidget);
         categoryShow.showCategory(MainUi->categoryWidget);
         providerShow.showProvider(MainUi->providerWidget);
-       userShow.showUser(MainUi->userWidget);
+        userShow.showUser(MainUi->userWidget);
 
     } else {
         tableWidget->horizontalHeader()->setVisible(false);
@@ -222,6 +222,14 @@ void MainApp::on_ReturnBtn_clicked()
 
     returnProduct->show();
     MainUi->AvailableBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
+}
+
+void MainApp::on_newAdmin_clicked()
+{
+    InsertAdmin *adminInsert = new InsertAdmin();
+    adminInsert->setModal(true);
+    adminInsert->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
 void MainApp::on_LightBtn_clicked()
