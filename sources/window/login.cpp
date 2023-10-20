@@ -94,10 +94,10 @@ void Login::on_LoginBtn_clicked(){
 }
 
 void Login::success(){
-    provider.initProvider();
-    user.initUser();
+    provider.tableProvider();
+    user.tableUser();
     history.initHistory();
-    category.initCategory();
+    category.tableCategory();
     product.tableProduct();
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
