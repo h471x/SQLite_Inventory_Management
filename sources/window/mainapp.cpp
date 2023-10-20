@@ -415,3 +415,21 @@ void MainApp::on_locationBtn_clicked()
 
 }
 
+
+void MainApp::on_saveHistoryBtn_clicked()
+{
+
+}
+
+
+void MainApp::on_deleteHistoryBtn_clicked()
+{
+
+}
+
+
+void MainApp::on_saveProductBtn_clicked()
+{
+
+}
+
