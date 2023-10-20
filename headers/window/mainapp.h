@@ -57,6 +57,12 @@ private slots:
 
     void on_locationBtn_clicked();
 
+    void on_saveHistoryBtn_clicked();
+
+    void on_deleteHistoryBtn_clicked();
+
+    void on_saveProductBtn_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
