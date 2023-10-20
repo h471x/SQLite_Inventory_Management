@@ -409,3 +409,9 @@ void MainApp::on_LightBtn_2_clicked()
 
 }
 
+
+void MainApp::on_locationBtn_clicked()
+{
+
+}
+
