@@ -14,13 +14,14 @@ public: //Method
     void showUser(QTableWidget* userTable);
     void setStyleUser(QTableWidget* userTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model);
 //    void AvailablebtnConfig();
+    void deleteUser(QTableWidget* userTable, QPushButton* deleteUserBtn);
 
 private: //Object Instance
     QSqlDatabase mydb;
 
 private: //actions buttons
     QFont tableFont;
-    // QString handleLend(QTableWidget* productTable);
+    QString selectUser(QTableWidget* userTable);
 
 };
 
