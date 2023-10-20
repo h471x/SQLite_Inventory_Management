@@ -15,6 +15,7 @@ SOURCES += \
     sources/database/show/category.cpp \
     sources/database/show/provider.cpp \
     sources/database/show/user.cpp \
+    sources/window/insertadmin.cpp \
     sources/window/returnproduct.cpp \
     sources/database/init/dbhistory.cpp \
     sources/database/init/dbcategory.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     headers/window/login.h \
     headers/window/insproduct.h \
     headers/window/lendproduct.h \
+    headers/window/insertadmin.h \
     headers/window/insertuser.h \
     headers/database/show/product.h \
     headers/database/show/history.h \
@@ -80,7 +82,8 @@ FORMS += \
     forms/insertuser.ui \
     forms/insertprovider.ui \
     forms/lendproduct.ui \
-    forms/returnproduct.ui
+    forms/returnproduct.ui \
+    forms/insertadmin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
