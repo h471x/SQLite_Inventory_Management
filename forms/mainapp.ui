@@ -891,6 +891,46 @@ QTableWidget QScrollBar:Vertical{
                             </property>
                            </widget>
                           </item>
+                          <item>
+                           <spacer name="verticalSpacer_2">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>5</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
+                          <item>
+                           <widget class="QPushButton" name="locationBtn">
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="../resources/resources.qrc">
+                              <normaloff>:/icons/icons/black/add.png</normaloff>:/icons/icons/black/add.png</iconset>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>120</width>
+                              <height>200</height>
+                             </size>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_14">
+                            <property name="text">
+                             <string>New Location</string>
+                            </property>
+                            <property name="alignment">
+                             <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                            </property>
+                           </widget>
+                          </item>
                          </layout>
                         </widget>
                        </item>
