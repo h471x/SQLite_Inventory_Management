@@ -326,29 +326,6 @@ QTableWidget QScrollBar:Vertical{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="FlowsBtn">
-               <property name="focusPolicy">
-                <enum>Qt::ClickFocus</enum>
-               </property>
-               <property name="toolTip">
-                <string>See the current flow of materials</string>
-               </property>
-               <property name="text">
-                <string>    Flows    </string>
-               </property>
-               <property name="icon">
-                <iconset resource="../resources/resources.qrc">
-                 <normaloff>:/icons/icons/black/flows.png</normaloff>:/icons/icons/black/flows.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>48</width>
-                 <height>48</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QPushButton" name="AvailableBtn">
                <property name="text">
                 <string>  Available   </string>
