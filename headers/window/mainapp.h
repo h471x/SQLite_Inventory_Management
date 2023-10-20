@@ -36,7 +36,7 @@ private slots:
     void on_MenuBtn_clicked();
     void on_AdminBtn_clicked();
     void on_FindBtn_clicked();
-    void on_FlowsBtn_clicked();
+//    void on_FlowsBtn_clicked();
     void on_OptionsBtn_clicked();
     void on_HelpBtn_clicked();
     void reloadHistory();
@@ -50,9 +50,7 @@ private slots:
     void on_ProviderBtn_clicked();
     void on_AvailableBtn_clicked();  
     void on_LendBtn_clicked();
-
     void on_ReturnBtn_clicked();
-
     void on_newAdmin_clicked();
 
 private: //ui
