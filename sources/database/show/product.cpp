@@ -4,12 +4,11 @@ ProductShow::ProductShow(){}
 
 void ProductShow::showProduct(QTableWidget* productTable){
     TableView* model = new TableView(this, mydb);
-//    QString query = "SELECT IdMateriel as ID, NomMateriel as Nom, Marque, Etat, DEnregistrement as Date FROM MATERIEL;";
     QString query = "SELECT MATERIEL.IdMateriel AS Id,MATERIEL.NomMateriel AS Nom,MATERIEL.Marque AS Marque,MATERIEL.Etat AS Etat,CATEGORIE.NomCategorie AS Categorie,MATERIEL.DEnregistrement AS Date,ADMIN.UsernameAdmin AS Admin,FOURNISSEUR.NomFournisseur AS Fournisseur FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie INNER JOIN ADMIN ON ADMIN.UsernameAdmin = MATERIEL.UsernameAdmin INNER JOIN FOURNISSEUR ON FOURNISSEUR.NomFournisseur = MATERIEL.NomFournisseur;";
     model->setQuery(query);
     model->select();
 
-    int tableColumnCount = query.count(",") + 1;
+    int tableColumnCount = model->columnCount();
     int tableRowCount = model->rowCount();
 
     productTable->setColumnCount(tableColumnCount);
