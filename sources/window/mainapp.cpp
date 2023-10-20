@@ -41,17 +41,17 @@ void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet()
 void MainApp::home(){
     // load home contents
     QTableWidget* tableWidget = MainUi->homeWidget;
-    QString query = "SELECT * FROM MATERIEL;";
-    QSqlQuery result;
-    result.exec(query);
+//    QString query = "SELECT * FROM MATERIEL;";
+//    QSqlQuery result;
+//    result.exec(query);
 
-    if (result.next()) {
-        tableWidget->horizontalHeader()->setVisible(true);
-        QFont tableFont;
-        tableFont.setPointSize(11);
-        tableWidget->horizontalHeader()->setFont(tableFont);
-        tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-        tableWidget->setVisible(true);
+//    if (result.next()) {
+//        tableWidget->horizontalHeader()->setVisible(true);
+//        QFont tableFont;
+//        tableFont.setPointSize(11);
+//        tableWidget->horizontalHeader()->setFont(tableFont);
+//        tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//        tableWidget->setVisible(true);
 
         product.showProduct(tableWidget);
         history.showHistory(MainUi->findWidget);
@@ -61,11 +61,11 @@ void MainApp::home(){
         providerShow.showProvider(MainUi->providerWidget);
         userShow.showUser(MainUi->userWidget);
 
-    } else {
-        tableWidget->horizontalHeader()->setVisible(false);
-        tableWidget->verticalHeader()->setVisible(false);
-        tableWidget->setVisible(false);
-    }
+//    } else {
+//        tableWidget->horizontalHeader()->setVisible(false);
+//        tableWidget->verticalHeader()->setVisible(false);
+//        tableWidget->setVisible(false);
+//    }
 
 }
 
