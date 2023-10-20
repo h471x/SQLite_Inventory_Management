@@ -1,5 +1,9 @@
 #include "headers/window/mainapp.h"
 
+#include <QtPrintSupport/QPrinter>
+#include <QPainter>
+#include <QFileDialog>
+
 MainApp::MainApp(QWidget *parent)
     : QMainWindow(parent)
     , MainUi(new Ui::MainApp)
@@ -23,7 +27,6 @@ void MainApp::on_HomeBtn_clicked(){ focusHome(); }
 void MainApp::on_MenuBtn_clicked(){ focusMenu(); }
 void MainApp::on_AdminBtn_clicked(){ focusAdmin(); }
 void MainApp::on_FindBtn_clicked(){ focusFind(); }
-//void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
 void MainApp::on_AvailableBtn_clicked(){ focusAvailable(); }
 void MainApp::on_PanneBtn_clicked(){ focusPanne(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
@@ -33,7 +36,6 @@ void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet()
 void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();home();}
 void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();home();};
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();home();};
-//void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();};
 void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();}
 void MainApp::focusPanne(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();}
 void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();};
@@ -150,7 +152,7 @@ void MainApp::removeStyleSheet()
     MainUi->MenuBtn->setStyleSheet("");
     MainUi->AdminBtn->setStyleSheet("");
     MainUi->FindBtn->setStyleSheet("");
-//    MainUi->FlowsBtn->setStyleSheet("");
+    MainUi->PanneBtn->setStyleSheet("");
     MainUi->AvailableBtn->setStyleSheet("");
     MainUi->OptionsBtn->setStyleSheet("");
     MainUi->HelpBtn->setStyleSheet("");
@@ -205,13 +207,13 @@ void MainApp::on_UserBtn_clicked()
     MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
-void MainApp::on_SearchBtn_clicked()
-{
-    MainUi->findWidget->clear();
-    MainUi->findWidget->setRowCount(0); // Supprime les lignes
-    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
-    history.showHistory(MainUi->findWidget);
-}
+//void MainApp::on_SearchBtn_clicked()
+//{
+//    MainUi->findWidget->clear();
+//    MainUi->findWidget->setRowCount(0); // Supprime les lignes
+//    MainUi->findWidget->setColumnCount(0); // Supprime les colonnes
+//    history.showHistory(MainUi->findWidget);
+//}
 
 void MainApp::on_ProviderBtn_clicked()
 {
@@ -418,7 +420,11 @@ void MainApp::on_locationBtn_clicked()
 
 void MainApp::on_saveHistoryBtn_clicked()
 {
+    QString HistoryTitle = "History";
+    QString HistoryQuery = "SELECT IdRequete as N°Query,TypeRequete as Type,DHRequete as Time,UsernameAdmin as Admin,UsernameUtilisateur as User,NomMateriel as Product FROM REQUETE;";
 
+    PdfSave saveHistory(HistoryTitle, HistoryQuery);
+    saveHistory.savePDF();
 }
 
 
@@ -430,6 +436,13 @@ void MainApp::on_deleteHistoryBtn_clicked()
 
 void MainApp::on_saveProductBtn_clicked()
 {
+    QString ProductTitle = "List of Products";
+    QString ProductQuery = "SELECT MATERIEL.IdMateriel AS Id, MATERIEL.NomMateriel AS Nom, MATERIEL.Marque AS Marque, MATERIEL.Etat AS Etat, CATEGORIE.NomCategorie AS Categorie, MATERIEL.DEnregistrement AS Date, ADMIN.UsernameAdmin AS Admin, FOURNISSEUR.NomFournisseur AS Fournisseur FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie INNER JOIN ADMIN ON ADMIN.UsernameAdmin = MATERIEL.UsernameAdmin INNER JOIN FOURNISSEUR ON FOURNISSEUR.NomFournisseur = MATERIEL.NomFournisseur;";
 
+   PdfSave saveProduct(ProductTitle, ProductQuery);
+   saveProduct.savePDF();
 }
+
+
+
 
