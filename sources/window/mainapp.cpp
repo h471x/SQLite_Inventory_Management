@@ -25,6 +25,7 @@ void MainApp::on_AdminBtn_clicked(){ focusAdmin(); }
 void MainApp::on_FindBtn_clicked(){ focusFind(); }
 //void MainApp::on_FlowsBtn_clicked(){ focusFlows(); }
 void MainApp::on_AvailableBtn_clicked(){ focusAvailable(); }
+void MainApp::on_PanneBtn_clicked(){ focusPanne(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
 
@@ -34,8 +35,45 @@ void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet(
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();home();};
 //void MainApp::focusFlows(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();};
 void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();}
+void MainApp::focusPanne(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();}
 void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();};
-void MainApp::focusHelp(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();home();};
+void MainApp::focusHelp(){
+//    QString filePath = "D:\\NTSOA\\ENI 2023\\PROJECTS\\Qt\\SQLite_GUI_App\\Inventory_Management\\SQLite_Inventory_Management\\sources\\help\\help.txt";
+
+    QString appDirPath = QCoreApplication::applicationDirPath();
+        QString filePath = appDirPath + "/help/help.txt";
+
+    QFile file(filePath);
+
+    MainUi->textBrowser->clear();
+
+    if (file.open(QIODevice::ReadOnly)) {
+        QTextStream in(&file);
+        QString fileContents = in.readAll();
+
+        QTextCursor cursor(MainUi->textBrowser->document());
+        cursor.movePosition(QTextCursor::Start);
+
+        // Set the font size for the QTextCursor
+        QTextCharFormat format;
+        format.setFontPointSize(14); // Change the font size as needed
+        cursor.setCharFormat(format);
+
+        cursor.removeSelectedText(); // Clear existing text
+        cursor.insertText(fileContents);
+
+        // Scroll to the top of the QTextBrowser
+        QTextCursor topCursor(MainUi->textBrowser->document());
+        topCursor.movePosition(QTextCursor::Start);
+        MainUi->textBrowser->setTextCursor(topCursor);
+
+        file.close();
+    }
+
+    MainUi->Content->setCurrentIndex(7);
+    removeStyleSheet();
+    home();
+};
 
 
 void MainApp::home(){
