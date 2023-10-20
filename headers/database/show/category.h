@@ -21,7 +21,7 @@ private: //Object Instance
 
 private: //actions buttons
     QFont tableFont;
-     QString selectCategory(QTableWidget* categoryTable);
+    QString selectCategory(QTableWidget* categoryTable);
 
 };
 
