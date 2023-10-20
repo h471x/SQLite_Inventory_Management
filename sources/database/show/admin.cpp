@@ -33,8 +33,32 @@ void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, in
     adminTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     adminTable->setStyleSheet("QTableWidget::item:selected { background-color: #d4d8e2; color: #000; }");
 
+    // Add The Actions columns within the table widget
+    adminTable->setColumnCount(tableColumnCount + 1);
+    adminTable->setHorizontalHeaderItem(tableColumnCount, new QTableWidgetItem("Actions"));
+    adminTable->setAlternatingRowColors(true);
+
     for (int row = 0; row < adminTable->rowCount(); ++row) {
+        int actionsColumn = tableColumnCount;
+
+        QPushButton *deleteAdminBtn = new QPushButton(adminTable);
+        deleteAdminBtn->setObjectName("actionButton");
+        deleteAdminBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
+        deleteAdminBtn->setIconSize(QSize(30, 30));
+        deleteAdminBtn->setFocusPolicy(Qt::NoFocus);
+        adminTable->setCellWidget(row, actionsColumn, deleteAdminBtn);
+
+        QFont actionFont;
+        deleteAdminBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        actionFont.setPointSize(9);
+        deleteAdminBtn->setFont(actionFont);
+
         adminTable->setRowHeight(row, 60);
+
+        deleteAdmin(adminTable, deleteAdminBtn);
+
+        if (row % 2 == 0) {deleteAdminBtn->setStyleSheet("background-color: #c5cad6;");}
+        else {deleteAdminBtn->setStyleSheet("background-color: #a2a6ae;");}
     }
 
     for (int column = 0; column < tableColumnCount; ++column) {
@@ -51,4 +75,52 @@ void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, in
             }
         }
     }
+}
+
+QString AdminShow::selectAdmin(QTableWidget* adminTable) {
+    // Get the currently selected item
+    QTableWidgetItem* selectedItem = adminTable->currentItem();
+
+    if (selectedItem) {
+        // Get the row index of the selected item
+        int selectedRow = adminTable->row(selectedItem);
+
+        // Get the data of the row where the cell is
+        QString rowData = adminTable->item(selectedRow, 0)->text();
+        return rowData;
+    } else {
+        return "";
+    }
+}
+
+void AdminShow::deleteAdmin(QTableWidget* adminTable, QPushButton* deleteAdminBtn){
+    connect(deleteAdminBtn, &QPushButton::clicked, this, [this, adminTable]() {
+        QString id = selectAdmin(adminTable);
+
+        if (!id.isEmpty()) {
+            // Display the confirmation dialog
+            QMessageBox msgBox;
+            msgBox.setText(" Are you sure?");
+            msgBox.setWindowTitle(" Confirm Deletion");
+            msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+            msgBox.setFocusPolicy(Qt::NoFocus);
+
+            msgBox.setFixedSize(300, 300); // Fix the size
+
+            int confirmResult = msgBox.exec();
+
+            if (confirmResult == QMessageBox::Yes) {
+                QSqlQuery query;
+                query.prepare("DELETE FROM ADMIN WHERE UsernameAdmin = :usrad;");
+                query.bindValue(":usrad", id);
+                query.exec();
+                adminTable->clear();
+                adminTable->setRowCount(0);
+                adminTable->setColumnCount(0);
+                showAdmin(adminTable);
+            } else {
+                // User clicked "No", do nothing
+            }
+        }
+    });
 }
