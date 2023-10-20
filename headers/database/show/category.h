@@ -14,13 +14,14 @@ public: //Method
     void showCategory(QTableWidget* categoryTable);
     void setStyleCategory(QTableWidget* categoryTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model);
 //    void AvailablebtnConfig();
+    void deleteCategory(QTableWidget* categoryTable, QPushButton* deleteBtn);
 
 private: //Object Instance
     QSqlDatabase mydb;
 
 private: //actions buttons
     QFont tableFont;
-    // QString handleLend(QTableWidget* productTable);
+     QString selectCategory(QTableWidget* categoryTable);
 
 };
 
