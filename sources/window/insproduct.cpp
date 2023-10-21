@@ -1,5 +1,6 @@
 #include "headers/window/insproduct.h"
 #include "headers/database/init/dbcategory.h"
+#include "headers/database/init/dbetat.h"
 #include "ui_insproduct.h"
 #include "headers/window/mainapp.h"
 
@@ -28,6 +29,15 @@ InsertProduct::InsertProduct(QWidget *parent) :
     while (queryFournisseur.next()) {
         InsertProductUi->fournisseur->addItem(queryFournisseur.value(0).toString());
     }
+
+    // Execute a query to retrieve data
+    QSqlQuery queryEtat("SELECT NomEtat from ETAT"); // Replace with your query
+    queryEtat.exec();
+
+    // Populate the QComboBox with data from the query
+    while (queryEtat.next()) {
+        InsertProductUi->etat->addItem(queryEtat.value(0).toString());
+    }
 }
 
 InsertProduct::~InsertProduct()
@@ -37,8 +47,6 @@ InsertProduct::~InsertProduct()
 
 void InsertProduct::on_pushButton_clicked()
 {
-    QDate date = QDate::currentDate();
-    QString currentDate = date.toString("dd/MM/yyyy");
     QString nom = InsertProductUi->nom->text();
     QString marque = InsertProductUi->marque->text();
     QString etat = InsertProductUi->etat->currentText();
@@ -87,7 +95,6 @@ void InsertProduct::on_pushButton_clicked()
                 query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, Etat, NomFournisseur, UsernameAdmin) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin)");
                 query.bindValue(":nom", nom);
                 query.bindValue(":marque", marque);
-//                query.bindValue(":date", currentDate);
                 query.bindValue(":categorie", categorie);
                 query.bindValue(":etat", etat);
                 query.bindValue(":fournisseur", fournisseur);
