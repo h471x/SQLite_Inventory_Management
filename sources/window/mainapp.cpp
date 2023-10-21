@@ -96,6 +96,7 @@ void MainApp::home(){
         product.showProduct(tableWidget);
         history.showHistory(MainUi->findWidget);
         available.showAvailable(MainUi->availableWidget);
+        notavailable.showNotAvailable(MainUi->NotavailableWidget);
         adminShow.showAdmin(MainUi->adminWidget);
         categoryShow.showCategory(MainUi->categoryWidget);
         providerShow.showProvider(MainUi->providerWidget);
