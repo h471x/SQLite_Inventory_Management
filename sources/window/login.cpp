@@ -98,6 +98,7 @@ void Login::success(){
     user.tableUser();
     history.initHistory();
     category.tableCategory();
+    etat.initEtat();
     product.tableProduct();
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
