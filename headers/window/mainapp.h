@@ -16,6 +16,7 @@
 #include "headers/window/insertuser.h"
 #include "headers/window/insertprovider.h"
 #include "headers/window/insertadmin.h"
+#include "headers/window/insertlocation.h"
 #include "headers/window/pdfsave.h"
 #include "headers/database/show/admin.h"
 #include "headers/database/show/category.h"
