@@ -44,7 +44,7 @@ private slots:
     void reloadHistory();
     void on_LightBtn_clicked();
     void on_LightBtn_2_clicked();
-    void on_NotifBtn_clicked();
+//    void on_NotifBtn_clicked();
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
     void on_UserBtn_clicked();

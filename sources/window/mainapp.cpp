@@ -133,18 +133,18 @@ void MainApp::help(){
     // load help contents
 };
 
-void MainApp::on_NotifBtn_clicked()
-{
-      QTableWidget* tableWidget = MainUi->homeWidget;
-//    QSqlQuery query;
-//    query.prepare("DELETE FROM MATERIEL;");
-//    query.exec();
+//void MainApp::on_NotifBtn_clicked()
+//{
+//      QTableWidget* tableWidget = MainUi->homeWidget;
+////    QSqlQuery query;
+////    query.prepare("DELETE FROM MATERIEL;");
+////    query.exec();
 
-    tableWidget->clear(); // Supprime le contenu des cellules
-    tableWidget->setRowCount(0); // Supprime les lignes
-    tableWidget->setColumnCount(0); // Supprime les colonnes
-    home();
-}
+//    tableWidget->clear(); // Supprime le contenu des cellules
+//    tableWidget->setRowCount(0); // Supprime les lignes
+//    tableWidget->setColumnCount(0); // Supprime les colonnes
+//    home();
+//}
 
 void MainApp::removeStyleSheet()
 {
