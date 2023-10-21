@@ -1,5 +1,6 @@
 #include "headers/window/insproduct.h"
 #include "headers/database/init/dbcategory.h"
+#include "headers/database/init/dbetat.h"
 #include "ui_insproduct.h"
 #include "headers/window/mainapp.h"
 
