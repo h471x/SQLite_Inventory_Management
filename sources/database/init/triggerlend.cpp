@@ -8,5 +8,6 @@ void TriggerLendInit::initTriggerLend(){
 
 void TriggerLendInit::TriggerLendCreate(){
     QSqlQuery query;
-    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteEmprunt AFTER UPDATE ON MATERIEL WHEN NEW.Emprunter = 1 BEGIN INSERT INTO REQUETE ('TypeRequete','DHRequete','UsernameAdmin','UsernameUtilisateur','NomMateriel') VALUES ('Emprunt',datetime('now','localtime'),NEW.UsernameAdmin,NEW.UsernameUtilisateur,NEW.NomMateriel); END;");
+    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteEmprunt AFTER UPDATE ON MATERIEL WHEN NEW.Emprunter = 1 BEGIN INSERT INTO REQUETE ('TypeRequete', 'DHRequete', 'UsernameAdmin', 'UsernameUtilisateur', 'NomMateriel') VALUES ('Emprunt', strftime('%d/%m/%Y %H:%M', 'now', 'localtime'), NEW.UsernameAdmin, NEW.UsernameUtilisateur, NEW.NomMateriel); END;");
 }
+
