@@ -15,6 +15,8 @@
 #include "headers/database/init/dbproduct.h"
 #include "headers/database/init/dbuser.h"
 #include "headers/database/init/dbhistory.h"
+#include "headers/database/init/dbetat.h"
+#include "headers/database/init/dblocation.h"
 #include "headers/database/init/triggerup.h"
 #include "headers/database/init/triggerdown.h"
 #include "headers/database/init/triggerdelete.h"
@@ -58,6 +60,8 @@ private: //db classes Instances
     ProviderInit provider;
     UserInit user;
     HistoryInit history;
+    EtatInit etat;
+    LocationInit location;
     TriggerUpInit triggerup;
     TriggerDownInit triggerdown;
     TriggerDeleteInit triggerdelete;
