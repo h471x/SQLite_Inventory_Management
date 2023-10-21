@@ -1,6 +1,7 @@
 #include "headers/window/insproduct.h"
 #include "headers/database/init/dbcategory.h"
 #include "headers/database/init/dbetat.h"
+#include "headers/window/insertlocation.h"
 #include "ui_insproduct.h"
 #include "headers/window/mainapp.h"
 
@@ -13,7 +14,7 @@ InsertProduct::InsertProduct(QWidget *parent) :
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 
     // Execute a query to retrieve data
-    QSqlQuery queryCategorie("SELECT NomCategorie from CATEGORIE"); // Replace with your query
+    QSqlQuery queryCategorie("SELECT NomCategorie from CATEGORIE;"); // Replace with your query
     queryCategorie.exec();
 
     // Populate the QComboBox with data from the query
@@ -22,7 +23,7 @@ InsertProduct::InsertProduct(QWidget *parent) :
     }
 
     // Execute a query to retrieve data
-    QSqlQuery queryFournisseur("SELECT NomFournisseur from FOURNISSEUR"); // Replace with your query
+    QSqlQuery queryFournisseur("SELECT NomFournisseur from FOURNISSEUR;"); // Replace with your query
     queryFournisseur.exec();
 
     // Populate the QComboBox with data from the query
@@ -31,12 +32,21 @@ InsertProduct::InsertProduct(QWidget *parent) :
     }
 
     // Execute a query to retrieve data
-    QSqlQuery queryEtat("SELECT NomEtat from ETAT"); // Replace with your query
+    QSqlQuery queryEtat("SELECT NomEtat from ETAT;"); // Replace with your query
     queryEtat.exec();
 
     // Populate the QComboBox with data from the query
     while (queryEtat.next()) {
         InsertProductUi->etat->addItem(queryEtat.value(0).toString());
+    }
+
+    // Execute a query to retrieve data
+    QSqlQuery queryLieu("SELECT NomEmplacement from EMPLACEMENT WHERE Entrepot = 1;"); // Replace with your query
+    queryLieu.exec();
+
+    // Populate the QComboBox with data from the query
+    while (queryLieu.next()) {
+        InsertProductUi->emplacement->addItem(queryLieu.value(0).toString());
     }
 }
 
@@ -52,6 +62,7 @@ void InsertProduct::on_pushButton_clicked()
     QString etat = InsertProductUi->etat->currentText();
     QString categorieNom = InsertProductUi->categorie->currentText();
     QString fournisseur = InsertProductUi->fournisseur->currentText();
+    QString lieu = InsertProductUi->emplacement->currentText();
     QString admin = InsertProductUi->admin->text();
     QString password = InsertProductUi->passwordadmin->text();
 
@@ -92,13 +103,14 @@ void InsertProduct::on_pushButton_clicked()
             if (adminQuery.exec() && adminQuery.next() && adminQuery.value(0).toInt() == 1) {
                 // Insert data into the MATERIEL table
                 QSqlQuery query;
-                query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, NomEtat, NomFournisseur, UsernameAdmin) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin)");
+                query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, NomEtat, NomFournisseur, UsernameAdmin, NomEmplacement) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin, :lieu)");
                 query.bindValue(":nom", nom);
                 query.bindValue(":marque", marque);
                 query.bindValue(":categorie", categorie);
                 query.bindValue(":etat", etat);
                 query.bindValue(":fournisseur", fournisseur);
                 query.bindValue(":admin", admin);
+                query.bindValue(":lieu", lieu);
 
                 if (query.exec()) {
                     this->close();
