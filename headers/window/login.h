@@ -13,6 +13,7 @@
 #include "headers/database/init/dbprovider.h"
 #include "headers/database/init/dbcategory.h"
 #include "headers/database/init/dbetat.h"
+#include "headers/database/init/dblocation.h"
 #include "headers/database/init/dbproduct.h"
 #include "headers/database/init/dbuser.h"
 #include "headers/database/init/dbhistory.h"
@@ -56,6 +57,7 @@ private: //db classes Instances
     AdminInit admin;
     CategoryInit category;
     EtatInit etat;
+    LocationInit location;
     ProductInit product;
     ProviderInit provider;
     UserInit user;
