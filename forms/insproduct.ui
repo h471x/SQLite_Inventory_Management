@@ -143,11 +143,6 @@
      <height>41</height>
     </rect>
    </property>
-   <item>
-    <property name="text">
-     <string>Utilisable</string>
-    </property>
-   </item>
   </widget>
   <widget class="QComboBox" name="categorie">
    <property name="geometry">
