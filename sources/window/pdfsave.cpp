@@ -54,8 +54,9 @@ void PdfSave::savePDF() {
 
     // Draw the title with the current date
     painter.setFont(QFont("Arial", 16, QFont::Bold));
-    QString formattedDate = QDate::currentDate().toString("dd/MM/yyyy");
-    painter.drawText(tableX, tableY - 50, printer.width(), 40, Qt::AlignCenter, title + " " + formattedDate);
+//    QString formattedDate = QDate::currentDate().toString("dd/MM/yyyy");
+    painter.drawText(tableX, tableY - 50, printer.width(), 40, Qt::AlignCenter, title);
+//    painter.drawText(tableX, tableY - 50, printer.width(), 40, Qt::AlignCenter, title + " " + formattedDate);
 
     // Draw the table headers and grid
     painter.setFont(QFont("Arial", 10, QFont::Bold));
