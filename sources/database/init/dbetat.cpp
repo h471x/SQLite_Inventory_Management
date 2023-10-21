@@ -9,11 +9,11 @@ void EtatInit::initEtat(){
 
 void EtatInit::tableEtat(){
     QSqlQuery query;
-    query.exec("CREATE TABLE ETAT (NomEtat TEXT PRIMARY KEY );");
+    query.exec("CREATE TABLE IF NOT EXISTS ETAT (NomEtat TEXT PRIMARY KEY );");
 }
 
 void EtatInit::valueEtat(){
     QSqlQuery query;
-    query.prepare("INSERT INTO ETAT VALUES ('Utilisable'),('En panne'),('A Jeter');");
+    query.prepare("INSERT OR IGNORE INTO ETAT VALUES ('Utilisable'),('En panne'),('A Jeter');");
     query.exec();
 }
