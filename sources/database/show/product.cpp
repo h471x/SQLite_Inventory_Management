@@ -4,7 +4,7 @@ ProductShow::ProductShow(){}
 
 void ProductShow::showProduct(QTableWidget* productTable){
     TableView* model = new TableView(this, mydb);
-    QString query = "SELECT MATERIEL.IdMateriel AS Id,MATERIEL.NomMateriel AS Nom,MATERIEL.Marque AS Marque,MATERIEL.Etat AS Etat,CATEGORIE.NomCategorie AS Categorie,MATERIEL.DEnregistrement AS Date,ADMIN.UsernameAdmin AS Admin,FOURNISSEUR.NomFournisseur AS Fournisseur FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie INNER JOIN ADMIN ON ADMIN.UsernameAdmin = MATERIEL.UsernameAdmin INNER JOIN FOURNISSEUR ON FOURNISSEUR.NomFournisseur = MATERIEL.NomFournisseur;";
+    QString query = "SELECT MATERIEL.IdMateriel AS Id,MATERIEL.NomMateriel AS Nom,MATERIEL.Marque AS Marque,MATERIEL.NomEtat  Etat,CATEGORIE.NomCategorie AS Categorie,MATERIEL.DEnregistrement AS Date,ADMIN.UsernameAdmin AS Admin,EMPLACEMENT.NomEmplacement AS Emplacement,FOURNISSEUR.NomFournisseur AS Fournisseur FROM MATERIEL INNER JOIN ETAT ON ETAT.NomEtat = MATERIEL.NomEtat INNER JOIN EMPLACEMENT ON EMPLACEMENT.NomEmplacement = MATERIEL.NomEmplacement INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie INNER JOIN ADMIN ON ADMIN.UsernameAdmin = MATERIEL.UsernameAdmin INNER JOIN FOURNISSEUR ON FOURNISSEUR.NomFournisseur = MATERIEL.NomFournisseur;";
     model->setQuery(query);
     model->select();
 
