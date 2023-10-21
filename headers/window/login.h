@@ -17,6 +17,7 @@
 #include "headers/database/init/dbhistory.h"
 #include "headers/database/init/triggerup.h"
 #include "headers/database/init/triggerdown.h"
+#include "headers/database/init/triggerdelete.h"
 #include "headers/database/init/triggersave.h"
 #include "headers/database/init/triggerlend.h"
 #include "headers/database/init/triggerreturn.h"
@@ -59,6 +60,7 @@ private: //db classes Instances
     HistoryInit history;
     TriggerUpInit triggerup;
     TriggerDownInit triggerdown;
+    TriggerDeleteInit triggerdelete;
     TriggerSaveInit triggersave;
     TriggerLendInit triggerlend;
     TriggerReturnInit triggerreturn;
