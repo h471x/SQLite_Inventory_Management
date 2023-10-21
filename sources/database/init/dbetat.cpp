@@ -14,5 +14,5 @@ void EtatInit::tableEtat(){
 
 void EtatInit::valueEtat(){
     QSqlQuery query;
-    query.exec("INSERT OR IGNORE INTO ETAT VALUES ('Utilisable'),('En panne'),('a Jeter');");
+    query.exec("INSERT OR IGNORE INTO ETAT VALUES ('Utilisable'),('En panne'),('A Jeter');");
 }
