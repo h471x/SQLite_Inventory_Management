@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 SOURCES += \
+    sources/database/init/dbetat.cpp \
     sources/database/init/triggerdelete.cpp \
     sources/database/show/admin.cpp \
     sources/database/show/category.cpp \
@@ -74,7 +75,8 @@ HEADERS += \
     headers/database/show/category.h \
     headers/database/show/provider.h \
     headers/database/show/user.h \
-    headers/window/pdfsave.h
+    headers/window/pdfsave.h \
+    headers/database/init/dbetat.h
 
 
 
