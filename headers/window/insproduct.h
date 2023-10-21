@@ -3,6 +3,7 @@
 
 #include "headers/database/init/dbproduct.h"
 #include "headers/database/init/dbprovider.h"
+#include "headers/database/init/dbetat.h"
 #include "headers/database/show/history.h"
 #include <QDialog>
 
