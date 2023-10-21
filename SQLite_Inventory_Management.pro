@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 SOURCES += \
+    sources/database/init/dbetat.cpp \
+    sources/database/init/dblocation.cpp \
     sources/database/init/triggerdelete.cpp \
     sources/database/show/admin.cpp \
     sources/database/show/category.cpp \
@@ -51,6 +53,8 @@ HEADERS += \
     headers/database/init/dbproduct.h \
     headers/database/init/dbprovider.h \
     headers/database/init/dbuser.h \
+    headers/database/init/dbetat.h \
+    headers/database/init/dblocation.h \
     headers/database/init/triggerup.h \
     headers/database/init/triggerdown.h \
     headers/database/init/triggerreturn.h \
