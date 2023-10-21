@@ -101,6 +101,7 @@ void Login::success(){
     product.tableProduct();
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
+    triggerdelete.initTriggerDelete();
     triggersave.initTriggerSave();
     triggerlend.initTriggerLend();
     triggerreturn.initTriggerReturn();
