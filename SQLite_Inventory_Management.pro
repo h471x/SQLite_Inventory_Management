@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 
 SOURCES += \
+    sources/database/init/triggerdelete.cpp \
     sources/database/show/admin.cpp \
     sources/database/show/category.cpp \
     sources/database/show/provider.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     headers/database/init/triggerup.h \
     headers/database/init/triggerdown.h \
     headers/database/init/triggerreturn.h \
+    headers/database/init/triggerdelete.h \
     headers/database/init/triggerlend.h \
     headers/database/init/triggersave.h \
     headers/window/inscategory.h \
