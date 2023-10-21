@@ -37,8 +37,6 @@ InsertProduct::~InsertProduct()
 
 void InsertProduct::on_pushButton_clicked()
 {
-    QDate date = QDate::currentDate();
-    QString currentDate = date.toString("dd/MM/yyyy");
     QString nom = InsertProductUi->nom->text();
     QString marque = InsertProductUi->marque->text();
     QString etat = InsertProductUi->etat->currentText();
@@ -87,7 +85,6 @@ void InsertProduct::on_pushButton_clicked()
                 query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, Etat, NomFournisseur, UsernameAdmin) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin)");
                 query.bindValue(":nom", nom);
                 query.bindValue(":marque", marque);
-//                query.bindValue(":date", currentDate);
                 query.bindValue(":categorie", categorie);
                 query.bindValue(":etat", etat);
                 query.bindValue(":fournisseur", fournisseur);
