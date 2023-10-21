@@ -99,6 +99,7 @@ void Login::success(){
     history.initHistory();
     category.tableCategory();
     etat.initEtat();
+    location.initLocation();
     product.tableProduct();
     triggerup.initTriggerUp();
     triggerdown.initTriggerDown();
