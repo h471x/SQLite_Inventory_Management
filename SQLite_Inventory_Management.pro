@@ -19,6 +19,7 @@ SOURCES += \
     sources/database/show/provider.cpp \
     sources/database/show/user.cpp \
     sources/window/insertadmin.cpp \
+    sources/window/insertlocation.cpp \
     sources/window/pdfsave.cpp \
     sources/window/returnproduct.cpp \
     sources/database/init/dbhistory.cpp \
@@ -69,6 +70,7 @@ HEADERS += \
     headers/window/lendproduct.h \
     headers/window/insertadmin.h \
     headers/window/insertuser.h \
+    headers/window/insertlocation.h \
     headers/database/show/product.h \
     headers/database/show/history.h \
     headers/database/show/table.h \
@@ -82,6 +84,7 @@ HEADERS += \
 
 
 
+
 FORMS += \
     forms/inscategory.ui \
     forms/mainapp.ui \
@@ -91,7 +94,8 @@ FORMS += \
     forms/insertprovider.ui \
     forms/lendproduct.ui \
     forms/returnproduct.ui \
-    forms/insertadmin.ui
+    forms/insertadmin.ui \
+    forms/insertlocation.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
