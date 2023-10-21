@@ -91,7 +91,7 @@ void InsertProduct::on_pushButton_clicked()
             if (adminQuery.exec() && adminQuery.next() && adminQuery.value(0).toInt() == 1) {
                 // Insert data into the MATERIEL table
                 QSqlQuery query;
-                query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, Etat, NomFournisseur, UsernameAdmin) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin)");
+                query.prepare("INSERT INTO MATERIEL(NomMateriel, Marque, DEnregistrement, IdCategorie, NomEtat, NomFournisseur, UsernameAdmin) VALUES(:nom, :marque, strftime('%d/%m/%Y', 'now', 'localtime'), :categorie, :etat, :fournisseur, :admin)");
                 query.bindValue(":nom", nom);
                 query.bindValue(":marque", marque);
                 query.bindValue(":categorie", categorie);
