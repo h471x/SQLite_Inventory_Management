@@ -9,6 +9,7 @@
 #include "headers/database/show/product.h"
 #include "headers/database/show/history.h"
 #include "headers/database/show/available.h"
+#include "headers/database/show/notavailable.h"
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
 #include "headers/window/lendproduct.h"
@@ -90,6 +91,7 @@ private: //data from database classes
     ProductShow product;
     HistoryShow history;
     AvailableShow available;
+    NotAvailableShow notavailable;
     AdminShow adminShow;
     CategoryShow categoryShow;
     ProviderShow providerShow;
