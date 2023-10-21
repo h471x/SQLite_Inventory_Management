@@ -8,5 +8,6 @@ void TriggerDeleteInit::initTriggerDelete(){
 
 void TriggerDeleteInit::TriggerDeleteCreate(){
     QSqlQuery query;
-    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteSupprimer AFTER DELETE ON MATERIEL BEGIN INSERT INTO REQUETE ('TypeRequete','DHRequete','UsernameAdmin','UsernameUtilisateur','NomMateriel') VALUES ('Suppression',datetime('now','localtime'),OLD.UsernameAdmin,OLD.UsernameAdmin,OLD.NomMateriel); END;");
+    query.exec("CREATE TRIGGER IF NOT EXISTS RequeteSupprimer AFTER DELETE ON MATERIEL BEGIN INSERT INTO REQUETE ('TypeRequete', 'DHRequete', 'UsernameAdmin', 'UsernameUtilisateur', 'NomMateriel') VALUES ('Suppression', strftime('%d/%m/%Y %H:%M', 'now', 'localtime'), OLD.UsernameAdmin, OLD.UsernameAdmin, OLD.NomMateriel); END;");
 }
+
