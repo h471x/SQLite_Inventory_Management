@@ -28,6 +28,15 @@ InsertProduct::InsertProduct(QWidget *parent) :
     while (queryFournisseur.next()) {
         InsertProductUi->fournisseur->addItem(queryFournisseur.value(0).toString());
     }
+
+    // Execute a query to retrieve data
+    QSqlQuery queryEtat("SELECT NomEtat from ETAT"); // Replace with your query
+    queryEtat.exec();
+
+    // Populate the QComboBox with data from the query
+    while (queryEtat.next()) {
+        InsertProductUi->etat->addItem(queryEtat.value(0).toString());
+    }
 }
 
 InsertProduct::~InsertProduct()
