@@ -414,7 +414,14 @@ void MainApp::on_LightBtn_2_clicked()
 
 void MainApp::on_locationBtn_clicked()
 {
+    InsertLocation *location = new InsertLocation();
+    location->setModal(true);
 
+    // Connect the finished signal of lendProduct to the home slot of MainApp
+    connect(location, &InsertLocation::finished, this, &MainApp::home);
+
+    location->show();
+    MainUi->MenuBtn->setStyleSheet("background-color: #c5cad6;border-left: 8px solid #000;font-size: 12.5pt;");
 }
 
 
