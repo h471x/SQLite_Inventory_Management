@@ -22,6 +22,8 @@
 #include "headers/database/init/triggerdelete.h"
 #include "headers/database/init/triggersave.h"
 #include "headers/database/init/triggerlend.h"
+#include "headers/database/init/triggerlenddown.h"
+#include "headers/database/init/triggerreturnup.h"
 #include "headers/database/init/triggerreturn.h"
 
 namespace Ui {
@@ -67,6 +69,8 @@ private: //db classes Instances
     TriggerDeleteInit triggerdelete;
     TriggerSaveInit triggersave;
     TriggerLendInit triggerlend;
+    TriggerLendDownInit triggerlenddown;
+    TriggerReturnUpInit triggerreturnup;
     TriggerReturnInit triggerreturn;
     QSqlQuery query;
 

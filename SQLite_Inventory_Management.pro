@@ -14,6 +14,8 @@ SOURCES += \
     sources/database/init/dbetat.cpp \
     sources/database/init/dblocation.cpp \
     sources/database/init/triggerdelete.cpp \
+    sources/database/init/triggerlenddown.cpp \
+    sources/database/init/triggerreturnup.cpp \
     sources/database/show/admin.cpp \
     sources/database/show/category.cpp \
     sources/database/show/notavailable.cpp \
@@ -86,7 +88,9 @@ HEADERS += \
     headers/window/insertlocation.h \
     headers/database/show/notavailable.h \
     headers/database/show/seuil.h \
-    headers/database/show/panne.h
+    headers/database/show/panne.h \
+    headers/database/init/triggerlenddown.h \
+    headers/database/init/triggerreturnup.h
 
 
 

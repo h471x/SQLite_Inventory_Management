@@ -106,6 +106,8 @@ void Login::success(){
     triggerdelete.initTriggerDelete();
     triggersave.initTriggerSave();
     triggerlend.initTriggerLend();
+    triggerlenddown.initTriggerLendDown();
+    triggerreturnup.initTriggerReturnUp();
     triggerreturn.initTriggerReturn();
 //    product.valueProduct();
 
