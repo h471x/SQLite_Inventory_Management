@@ -12,18 +12,18 @@ public: //Constructor
 public: //Method
     void showProduct(QTableWidget* productTable);
     void setStyle(QTableWidget* productTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model);
-    void btnConfig();
-    void deleteRowFeature(QTableWidget* productTable);
+//    void btnConfig();
+//    void deleteRowFeature(QTableWidget* productTable);
 
 private: //Object Instance
     QSqlDatabase mydb;
 
 private: //actions buttons
-    QPushButton* editBtn;
-    QPushButton* deleteBtn;
-    QPushButton* infoBtn;
+//    QPushButton* editBtn;
+//    QPushButton* deleteBtn;
+//    QPushButton* infoBtn;
     QFont tableFont;
-    QString handleItemSelectionChanged(QTableWidget* productTable);
+//    QString handleItemSelectionChanged(QTableWidget* productTable);
 
 };
 

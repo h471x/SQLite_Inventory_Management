@@ -25,6 +25,7 @@
 #include "headers/database/show/category.h"
 #include "headers/database/show/provider.h"
 #include "headers/database/show/user.h"
+#include "headers/database/show/trash.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainApp; }
@@ -94,6 +95,7 @@ public: //Methods
 
 private: //data from database classes
     ProductShow product;
+    TrashShow trash;
     HistoryShow history;
     AvailableShow available;
     NotAvailableShow notavailable;

@@ -105,6 +105,7 @@ void MainApp::home(){
         seuilShow.showSeuil(MainUi->seuilWidget);
         providerShow.showProvider(MainUi->providerWidget);
         userShow.showUser(MainUi->userWidget);
+        trash.showTrash(MainUi->trashWidget);
 
 //    } else {
 //        tableWidget->horizontalHeader()->setVisible(false);

@@ -4,7 +4,7 @@ HistoryShow::HistoryShow(){}
 
 void HistoryShow::showHistory(QTableWidget* historyTable){
     TableView* model = new TableView(this, mydb);
-    QString query = "SELECT IdRequete as N°Query,TypeRequete as Type,DHRequete as Time,UsernameAdmin as Admin,UsernameUtilisateur as User,NomMateriel as Product FROM REQUETE;";
+    QString query = "SELECT IdRequete as N°Query,TypeRequete as Type,DHRequete as Time,UsernameAdmin as Admin,UsernameUtilisateur as User,NomMateriel as Product, NomEtat AS Etat, NomEmplacement AS Lieu FROM REQUETE;";
     model->setQuery(query);
     model->select();
 
