@@ -98,7 +98,9 @@ void MainApp::home(){
         available.showAvailable(MainUi->availableWidget);
         notavailable.showNotAvailable(MainUi->NotavailableWidget);
         adminShow.showAdmin(MainUi->adminWidget);
+        panne.showPanne(MainUi->panneWidget);
         categoryShow.showCategory(MainUi->categoryWidget);
+        seuilShow.showSeuil(MainUi->seuilWidget);
         providerShow.showProvider(MainUi->providerWidget);
         userShow.showUser(MainUi->userWidget);
 
