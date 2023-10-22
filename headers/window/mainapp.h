@@ -64,6 +64,8 @@ private slots:
     void on_deleteHistoryBtn_clicked();
     void on_saveProductBtn_clicked();
 
+    void on_StatsBtn_clicked();
+
 private: //ui
     Ui::MainApp *MainUi;
 
@@ -78,6 +80,7 @@ public: //Methods
     void focusPanne();
     void focusOptions();
     void focusHelp();
+    void focusStats();
     void removeStyleSheet();
 
 public: //Methods
