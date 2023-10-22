@@ -31,14 +31,14 @@ InsertProduct::InsertProduct(QWidget *parent) :
         InsertProductUi->fournisseur->addItem(queryFournisseur.value(0).toString());
     }
 
-    // Execute a query to retrieve data
-    QSqlQuery queryEtat("SELECT NomEtat from ETAT;"); // Replace with your query
-    queryEtat.exec();
+//    // Execute a query to retrieve data
+//    QSqlQuery queryEtat("SELECT NomEtat from ETAT;"); // Replace with your query
+//    queryEtat.exec();
 
-    // Populate the QComboBox with data from the query
-    while (queryEtat.next()) {
-        InsertProductUi->etat->addItem(queryEtat.value(0).toString());
-    }
+//    // Populate the QComboBox with data from the query
+//    while (queryEtat.next()) {
+//        InsertProductUi->etat->addItem(queryEtat.value(0).toString());
+//    }
 
     // Execute a query to retrieve data
     QSqlQuery queryLieu("SELECT NomEmplacement from EMPLACEMENT WHERE Entrepot = 1;"); // Replace with your query
