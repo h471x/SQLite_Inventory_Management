@@ -14,6 +14,7 @@ public: //Method
 private: //Method
     void tableAdmin(QSqlDatabase db);
     void valueAdmin(QSqlDatabase db);
+
 };
 
 #endif // DBADMIN_H

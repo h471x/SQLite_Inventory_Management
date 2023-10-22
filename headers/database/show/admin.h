@@ -23,6 +23,7 @@ private: //actions buttons
     QFont tableFont;
     // QString handleLend(QTableWidget* productTable);
     QString selectAdmin(QTableWidget* adminTable);
+    void addActionsColumn(QTableWidget* adminTable, int tableRowCount);
 
 };
 

@@ -19,7 +19,7 @@ void AdminInit::valueAdmin(QSqlDatabase db){
     QSqlQuery query(db);
     query.prepare("INSERT OR IGNORE INTO ADMIN(UsernameAdmin, Password, NomAdmin, PrenomAdmin, TelephoneAdmin, AdresseAdmin) VALUES(:usernameadmin, :passwordadmin, :nameadmin, :prenom, :phone, :adresse)");
     query.bindValue(":usernameadmin", "admin");
-    query.bindValue(":passwordadmin", "admin");
+    query.bindValue(":passwordadmin", "adminadmin");
     query.bindValue(":nameadmin", "admin");
     query.bindValue(":prenom", "admin");
     query.bindValue(":phone", "033333333");

@@ -2,7 +2,7 @@
 
 AdminShow::AdminShow(){}
 
-void AdminShow::showAdmin(QTableWidget* adminTable){
+void AdminShow::showAdmin(QTableWidget* adminTable) {
     TableView* model = new TableView(this, mydb);
     QString query = "SELECT UsernameAdmin AS UserName, NomAdmin AS Nom, PrenomAdmin AS Prenom, TelephoneAdmin AS Phone, AdresseAdmin AS Adress FROM ADMIN";
     model->setQuery(query);
@@ -17,12 +17,12 @@ void AdminShow::showAdmin(QTableWidget* adminTable){
     setStyleAdmin(adminTable, tableColumnCount, tableRowCount, model);
 }
 
-void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model){
+void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, int tableRowCount, QSqlTableModel* model) {
     adminTable->setRowCount(tableRowCount);
     adminTable->setColumnCount(tableColumnCount);
     adminTable->setAlternatingRowColors(true);
 
-    // Some adjustements for the QTableView
+    // Some adjustments for the QTableView
     QFont tableFont;
     tableFont.setPointSize(11);
     adminTable->horizontalHeader()->setFont(tableFont);
@@ -33,32 +33,9 @@ void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, in
     adminTable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     adminTable->setStyleSheet("QTableWidget::item:selected { background-color: #d4d8e2; color: #000; }");
 
-    // Add The Actions columns within the table widget
-    adminTable->setColumnCount(tableColumnCount + 1);
-    adminTable->setHorizontalHeaderItem(tableColumnCount, new QTableWidgetItem("Actions"));
-    adminTable->setAlternatingRowColors(true);
-
-    for (int row = 0; row < adminTable->rowCount(); ++row) {
-        int actionsColumn = tableColumnCount;
-
-        QPushButton *deleteAdminBtn = new QPushButton(adminTable);
-        deleteAdminBtn->setObjectName("actionButton");
-        deleteAdminBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
-        deleteAdminBtn->setIconSize(QSize(30, 30));
-        deleteAdminBtn->setFocusPolicy(Qt::NoFocus);
-        adminTable->setCellWidget(row, actionsColumn, deleteAdminBtn);
-
-        QFont actionFont;
-        deleteAdminBtn->setCursor(QCursor(Qt::PointingHandCursor));
-        actionFont.setPointSize(9);
-        deleteAdminBtn->setFont(actionFont);
-
-        adminTable->setRowHeight(row, 60);
-
-        deleteAdmin(adminTable, deleteAdminBtn);
-
-        if (row % 2 == 0) {deleteAdminBtn->setStyleSheet("background-color: #c5cad6;");}
-        else {deleteAdminBtn->setStyleSheet("background-color: #a2a6ae;");}
+    if (tableRowCount > 1) {
+        // If there is more than one admin, add the "Actions" column and buttons
+        addActionsColumn(adminTable, tableRowCount);
     }
 
     for (int column = 0; column < tableColumnCount; ++column) {
@@ -76,6 +53,38 @@ void AdminShow::setStyleAdmin(QTableWidget* adminTable, int tableColumnCount, in
         }
     }
 }
+
+void AdminShow::addActionsColumn(QTableWidget* adminTable, int tableRowCount) {
+    int actionsColumn = adminTable->columnCount();
+
+    adminTable->setColumnCount(actionsColumn + 1);
+    adminTable->setHorizontalHeaderItem(actionsColumn, new QTableWidgetItem("Actions"));
+
+    for (int row = 0; row < tableRowCount; ++row) {
+        QPushButton *deleteAdminBtn = new QPushButton(adminTable);
+        deleteAdminBtn->setObjectName("actionButton");
+        deleteAdminBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
+        deleteAdminBtn->setIconSize(QSize(30, 30));
+        deleteAdminBtn->setFocusPolicy(Qt::NoFocus);
+        adminTable->setCellWidget(row, actionsColumn, deleteAdminBtn);
+
+        QFont actionFont;
+        deleteAdminBtn->setCursor(QCursor(Qt::PointingHandCursor));
+        actionFont.setPointSize(9);
+        deleteAdminBtn->setFont(actionFont);
+
+        adminTable->setRowHeight(row, 60);
+
+        deleteAdmin(adminTable, deleteAdminBtn);
+
+        if (row % 2 == 0) {
+            deleteAdminBtn->setStyleSheet("background-color: #c5cad6;");
+        } else {
+            deleteAdminBtn->setStyleSheet("background-color: #a2a6ae;");
+        }
+    }
+}
+
 
 QString AdminShow::selectAdmin(QTableWidget* adminTable) {
     // Get the currently selected item
