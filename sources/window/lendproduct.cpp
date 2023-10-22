@@ -1,4 +1,5 @@
 #include "headers/window/lendproduct.h"
+#include "headers/window/insertlocation.h"
 #include "ui_lendproduct.h"
 
 LendProduct::LendProduct(const QString& idmateriel, QWidget *parent) :
@@ -21,6 +22,15 @@ LendProduct::LendProduct(const QString& idmateriel, QWidget *parent) :
     while (queryProduct.next()) {
         LendProductUi->productid->addItem(queryProduct.value(0).toString());
     }
+
+    // Execute a query to retrieve data
+   QSqlQuery queryLieu("SELECT NomEmplacement from EMPLACEMENT WHERE Entrepot = 0;"); // Replace with your query
+   queryLieu.exec();
+
+   // Populate the QComboBox with data from the query
+   while (queryLieu.next()) {
+       LendProductUi->location->addItem(queryLieu.value(0).toString());
+   }
 }
 
 LendProduct::~LendProduct()
@@ -32,10 +42,12 @@ void LendProduct::on_lend_clicked()
 {      
         QString id = LendProductUi->productid->currentText();
         QString user = LendProductUi->username->currentText();
+        QString lieu = LendProductUi->location->currentText();
 
         QSqlQuery lendQuery;
-        lendQuery.prepare("UPDATE MATERIEL SET Emprunter = 1, UsernameUtilisateur= :user WHERE IdMateriel = :id;");
+        lendQuery.prepare("UPDATE MATERIEL SET Emprunter = 1, UsernameUtilisateur= :user, NomEmplacement = :lieu WHERE IdMateriel = :id;");
         lendQuery.bindValue(":user", user);
+        lendQuery.bindValue(":lieu", lieu);
         lendQuery.bindValue(":id", id);
         if (lendQuery.exec()) {
             this->close();
