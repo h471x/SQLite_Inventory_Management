@@ -31,14 +31,15 @@ void MainApp::on_AvailableBtn_clicked(){ focusAvailable(); }
 void MainApp::on_PanneBtn_clicked(){ focusPanne(); }
 void MainApp::on_OptionsBtn_clicked(){ focusOptions(); }
 void MainApp::on_HelpBtn_clicked(){ focusHelp(); }
+void MainApp::on_StatsBtn_clicked(){ focusStats(); }
 
 void MainApp::focusHome(){MainUi->Content->setCurrentIndex(0);removeStyleSheet();home();}
 void MainApp::focusMenu(){MainUi->Content->setCurrentIndex(1);removeStyleSheet();home();}
 void MainApp::focusAdmin(){MainUi->Content->setCurrentIndex(2);removeStyleSheet();home();};
 void MainApp::focusFind(){MainUi->Content->setCurrentIndex(3);removeStyleSheet();home();};
-void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();}
+void MainApp::focusAvailable(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();}
 void MainApp::focusPanne(){MainUi->Content->setCurrentIndex(4);removeStyleSheet();home();}
-void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(6);removeStyleSheet();home();};
+void MainApp::focusOptions(){MainUi->Content->setCurrentIndex(7);removeStyleSheet();home();};
 void MainApp::focusHelp(){
 //    QString filePath = "D:\\NTSOA\\ENI 2023\\PROJECTS\\Qt\\SQLite_GUI_App\\Inventory_Management\\SQLite_Inventory_Management\\sources\\help\\help.txt";
 
@@ -72,10 +73,11 @@ void MainApp::focusHelp(){
         file.close();
     }
 
-    MainUi->Content->setCurrentIndex(7);
+    MainUi->Content->setCurrentIndex(8);
     removeStyleSheet();
     home();
 };
+void MainApp::focusStats(){MainUi->Content->setCurrentIndex(5);removeStyleSheet();home();};
 
 
 void MainApp::home(){
@@ -183,12 +185,12 @@ void MainApp::on_pushButton_2_clicked()
     QSqlQuery categoryQuery("SELECT NomCategorie FROM CATEGORIE");
 
     if (!categoryQuery.exec()) {
-        qDebug() << "Error querying categories: " << categoryQuery.lastError();
+//        qDebug() << "Error querying categories: " << categoryQuery.lastError();
         // Display an error message here or handle the error accordingly
     } else {
         // Check if there are no categories
         if (!categoryQuery.next()) {
-            qDebug() << "No categories found in the CATEGORIE table";
+//            qDebug() << "No categories found in the CATEGORIE table";
             // Display an error message here or handle the case of no categories
         } else {
             // At least one category is found; proceed with showing the InsertProduct dialog
@@ -452,7 +454,4 @@ void MainApp::on_saveProductBtn_clicked()
    PdfSave saveProduct(ProductTitle, ProductQuery);
    saveProduct.savePDF();
 }
-
-
-
 
