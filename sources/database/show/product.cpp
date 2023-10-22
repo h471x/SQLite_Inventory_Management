@@ -41,8 +41,8 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
      // Parcourt toutes les lignes de la table
      for (int row = 0; row < productTable->rowCount(); ++row) {
 
-         editBtn = new QPushButton();
-         deleteBtn = new QPushButton();
+//         editBtn = new QPushButton();
+         deleteBtn = new QPushButton(" Delete");
 //         infoBtn = new QPushButton(" Info");
 
          productTable->setRowHeight(row, 60);
@@ -52,9 +52,9 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
          btnConfig();
 
          QFont actionFont;
-         editBtn->setCursor(QCursor(Qt::PointingHandCursor));
+//         editBtn->setCursor(QCursor(Qt::PointingHandCursor));
          actionFont.setPointSize(9);
-         editBtn->setFont(actionFont);
+//         editBtn->setFont(actionFont);
          deleteBtn->setFont(actionFont);
 //         infoBtn->setFont(actionFont);
 
@@ -62,7 +62,7 @@ void ProductShow::setStyle(QTableWidget* productTable, int tableColumnCount, int
         QWidget* actionsWidget = new QWidget();
         QHBoxLayout* actionsLayout = new QHBoxLayout(actionsWidget);
 //        actionsLayout->addWidget(infoBtn);
-        actionsLayout->addWidget(editBtn);
+//        actionsLayout->addWidget(editBtn);
         actionsLayout->addWidget(deleteBtn);
         actionsLayout->setContentsMargins(0, 0, 0, 0);
         actionsWidget->setLayout(actionsLayout);
@@ -116,17 +116,17 @@ QString ProductShow::handleItemSelectionChanged(QTableWidget* productTable) {
 
 void ProductShow::btnConfig(){
     //Tool Tips
-    editBtn->setToolTip("Edit");
+//    editBtn->setToolTip("Edit");
     deleteBtn->setToolTip("Delete");
 //    infoBtn->setToolTip("Infos");
 
-    editBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
+//    editBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
     deleteBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
 //    infoBtn->setStyleSheet("QToolTip{background-color: #eaeff5;}");
 
     // Change the icons of the Buttons here
-    editBtn->setIcon(QIcon(":/icons/icons/black/edit.svg"));
-    editBtn->setIconSize(QSize(30, 30));
+//    editBtn->setIcon(QIcon(":/icons/icons/black/edit.svg"));
+//    editBtn->setIconSize(QSize(30, 30));
 
     deleteBtn->setIcon(QIcon(":/icons/icons/black/delete.png"));
     deleteBtn->setIconSize(QSize(30, 30));
@@ -135,7 +135,7 @@ void ProductShow::btnConfig(){
 //    infoBtn->setIconSize(QSize(30, 30));
 
     // Set the focud Policy to No focus
-    editBtn->setFocusPolicy(Qt::NoFocus);
+//    editBtn->setFocusPolicy(Qt::NoFocus);
     deleteBtn->setFocusPolicy(Qt::NoFocus);
 //    infoBtn->setFocusPolicy(Qt::NoFocus);
 }
