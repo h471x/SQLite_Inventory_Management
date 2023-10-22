@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="icons">
     <file>icons/black/repair.svg</file>
-    <file>icons/black/stats.svg</file>
     <file>icons/black/panne.png</file>
+    <file>icons/black/stats.svg</file>
     <file>icons/black/view.png</file>
     <file>icons/black/back.png</file>
     <file>icons/black/history.png</file>
