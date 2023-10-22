@@ -4,7 +4,7 @@ AvailableShow::AvailableShow(){}
 
 void AvailableShow::showAvailable(QTableWidget* availableTable){
     TableView* model = new TableView(this, mydb);
-    QString query = "SELECT MATERIEL.IdMateriel AS Id, MATERIEL.NomMateriel AS Nom, MATERIEL.Marque AS Marque, MATERIEL.NomEtat AS Etat, CATEGORIE.NomCategorie AS Categorie FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie WHERE MATERIEL.Emprunter = 0;";
+    QString query = "SELECT MATERIEL.IdMateriel AS Id, MATERIEL.NomMateriel AS Nom, MATERIEL.Marque AS Marque, MATERIEL.NomEtat AS Etat, CATEGORIE.NomCategorie AS Categorie FROM MATERIEL INNER JOIN CATEGORIE ON CATEGORIE.IdCategorie = MATERIEL.IdCategorie WHERE MATERIEL.Emprunter = 0 AND MATERIEL.NomEtat = 'Utilisable';";
     model->setQuery(query);
     model->select();
 
