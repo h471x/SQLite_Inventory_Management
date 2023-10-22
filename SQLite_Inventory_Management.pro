@@ -17,7 +17,9 @@ SOURCES += \
     sources/database/show/admin.cpp \
     sources/database/show/category.cpp \
     sources/database/show/notavailable.cpp \
+    sources/database/show/panne.cpp \
     sources/database/show/provider.cpp \
+    sources/database/show/seuil.cpp \
     sources/database/show/user.cpp \
     sources/window/insertadmin.cpp \
     sources/window/pdfsave.cpp \
@@ -82,7 +84,9 @@ HEADERS += \
     headers/database/init/dbetat.h \
     headers/database/init/dblocation.h \
     headers/window/insertlocation.h \
-    headers/database/show/notavailable.h
+    headers/database/show/notavailable.h \
+    headers/database/show/seuil.h \
+    headers/database/show/panne.h
 
 
 
