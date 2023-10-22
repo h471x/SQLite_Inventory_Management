@@ -66,7 +66,7 @@ QToolTip{
 #Content QTreeView::item:Alternate{background-color: #a2a6ae;}
 #Content QTreeView::item:Hover{background-color: #d4d8e2;}
 
-#title, #title_2, #availableTitle,#availableTitle_2, #userTitle, #adminTitle, #creationTitle{
+#title, #title_2, #availableTitle,#availableTitle_2, #userTitle, #adminTitle, #creationTitle, #categoryTitle, #seuilTitle{
 	font-size: 16pt;
 	font-weight: bold;
 }
@@ -345,7 +345,7 @@ QTableWidget QScrollBar:Vertical{
              <item>
               <widget class="QPushButton" name="PanneBtn">
                <property name="text">
-                <string>  Panne </string>
+                <string>Category </string>
                </property>
                <property name="icon">
                 <iconset resource="../resources/resources.qrc">
@@ -475,7 +475,7 @@ QTableWidget QScrollBar:Vertical{
        <item row="0" column="0">
         <widget class="QStackedWidget" name="Content">
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="HomePage">
           <layout class="QHBoxLayout" name="horizontalLayout">
@@ -1643,7 +1643,7 @@ QTableWidget QScrollBar:Vertical{
                        <item>
                         <widget class="QLabel" name="label_6">
                          <property name="text">
-                          <string>Category List :</string>
+                          <string>Panne List :</string>
                          </property>
                         </widget>
                        </item>
@@ -1688,7 +1688,7 @@ QTableWidget QScrollBar:Vertical{
                         <number>0</number>
                        </property>
                        <item>
-                        <widget class="QTableWidget" name="categoryWidget">
+                        <widget class="QTableWidget" name="panneWidget">
                          <property name="focusPolicy">
                           <enum>Qt::NoFocus</enum>
                          </property>
@@ -1854,6 +1854,26 @@ QTableWidget QScrollBar:Vertical{
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
                  <item>
+                  <widget class="QPushButton" name="deleteHistoryBtn">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../resources/resources.qrc">
+                     <normaloff>:/icons/icons/black/delete.png</normaloff>:/icons/icons/black/delete.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>40</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="horizontalSpacer_4">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
@@ -1897,26 +1917,6 @@ QTableWidget QScrollBar:Vertical{
                    <property name="icon">
                     <iconset resource="../resources/resources.qrc">
                      <normaloff>:/icons/icons/black/save.png</normaloff>:/icons/icons/black/save.png</iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>40</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="deleteHistoryBtn">
-                   <property name="focusPolicy">
-                    <enum>Qt::NoFocus</enum>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="../resources/resources.qrc">
-                     <normaloff>:/icons/icons/black/delete.png</normaloff>:/icons/icons/black/delete.png</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -2098,19 +2098,447 @@ QTableWidget QScrollBar:Vertical{
           </layout>
          </widget>
          <widget class="QWidget" name="FlowsPage">
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>250</x>
-             <y>240</y>
-             <width>191</width>
-             <height>19</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Flows Page</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_33">
+           <item>
+            <widget class="QFrame" name="frame_30">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_34">
+              <item>
+               <widget class="QFrame" name="AvailableHeader_3">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_22">
+                 <item>
+                  <widget class="QLabel" name="categoryTitle">
+                   <property name="text">
+                    <string>Category</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_26">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>276</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="seuilTitle">
+                   <property name="text">
+                    <string>Seuil</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_27">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>437</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="AvailableBody_3">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="100,0,100">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="frame_31">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_27">
+                    <item>
+                     <widget class="QTableWidget" name="categoryWidget">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>2</number>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustToContents</enum>
+                      </property>
+                      <property name="autoScroll">
+                       <bool>false</bool>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="tabKeyNavigation">
+                       <bool>false</bool>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionMode">
+                       <enum>QAbstractItemView::ExtendedSelection</enum>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectItems</enum>
+                      </property>
+                      <property name="verticalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="horizontalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="showGrid">
+                       <bool>true</bool>
+                      </property>
+                      <property name="gridStyle">
+                       <enum>Qt::SolidLine</enum>
+                      </property>
+                      <property name="columnCount">
+                       <number>0</number>
+                      </property>
+                      <attribute name="horizontalHeaderMinimumSectionSize">
+                       <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderDefaultSectionSize">
+                       <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                       <bool>true</bool>
+                      </attribute>
+                      <attribute name="horizontalHeaderStretchLastSection">
+                       <bool>false</bool>
+                      </attribute>
+                      <attribute name="verticalHeaderMinimumSectionSize">
+                       <number>30</number>
+                      </attribute>
+                      <attribute name="verticalHeaderStretchLastSection">
+                       <bool>false</bool>
+                      </attribute>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_25">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="frame_32">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_28">
+                    <item>
+                     <widget class="QTableWidget" name="seuilWidget">
+                      <property name="focusPolicy">
+                       <enum>Qt::NoFocus</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>2</number>
+                      </property>
+                      <property name="sizeAdjustPolicy">
+                       <enum>QAbstractScrollArea::AdjustToContents</enum>
+                      </property>
+                      <property name="autoScroll">
+                       <bool>false</bool>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="tabKeyNavigation">
+                       <bool>false</bool>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionMode">
+                       <enum>QAbstractItemView::ExtendedSelection</enum>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectItems</enum>
+                      </property>
+                      <property name="verticalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="horizontalScrollMode">
+                       <enum>QAbstractItemView::ScrollPerPixel</enum>
+                      </property>
+                      <property name="showGrid">
+                       <bool>true</bool>
+                      </property>
+                      <property name="gridStyle">
+                       <enum>Qt::SolidLine</enum>
+                      </property>
+                      <property name="columnCount">
+                       <number>0</number>
+                      </property>
+                      <attribute name="horizontalHeaderMinimumSectionSize">
+                       <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderDefaultSectionSize">
+                       <number>50</number>
+                      </attribute>
+                      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                       <bool>true</bool>
+                      </attribute>
+                      <attribute name="horizontalHeaderStretchLastSection">
+                       <bool>false</bool>
+                      </attribute>
+                      <attribute name="verticalHeaderMinimumSectionSize">
+                       <number>30</number>
+                      </attribute>
+                      <attribute name="verticalHeaderStretchLastSection">
+                       <bool>false</bool>
+                      </attribute>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="textAlignment">
+                        <set>AlignCenter</set>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                      <row>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </row>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="AvailablePage">
           <layout class="QHBoxLayout" name="horizontalLayout_13">
