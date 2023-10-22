@@ -43,8 +43,8 @@ void PanneShow::setStylePanne(QTableWidget* panneTable, int tableColumnCount, in
 
         QPushButton *deletePanneBtn = new QPushButton(panneTable);
         deletePanneBtn->setObjectName("actionButton");
-        deletePanneBtn->setIcon(QIcon(":/icons/icons/black/reload.png"));
-        deletePanneBtn->setIconSize(QSize(30, 30));
+        deletePanneBtn->setIcon(QIcon(":/icons/icons/black/repair.svg"));
+        deletePanneBtn->setIconSize(QSize(45, 45));
         deletePanneBtn->setFocusPolicy(Qt::NoFocus);
         panneTable->setCellWidget(row, actionsColumn, deletePanneBtn);
 
