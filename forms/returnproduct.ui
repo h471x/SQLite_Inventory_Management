@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>170</y>
+     <y>100</y>
      <width>171</width>
      <height>20</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QComboBox" name="id">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>160</y>
+     <x>240</x>
+     <y>90</y>
      <width>301</width>
      <height>41</height>
     </rect>
@@ -39,14 +39,60 @@
   <widget class="QPushButton" name="returnProduct">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>299</y>
+     <x>190</x>
+     <y>340</y>
      <width>251</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>Return Product</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="etat">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>170</y>
+     <width>301</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="location">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>250</y>
+     <width>301</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>170</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Etat</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Location</string>
    </property>
   </widget>
  </widget>
