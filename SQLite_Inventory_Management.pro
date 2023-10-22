@@ -22,6 +22,7 @@ SOURCES += \
     sources/database/show/panne.cpp \
     sources/database/show/provider.cpp \
     sources/database/show/seuil.cpp \
+    sources/database/show/trash.cpp \
     sources/database/show/user.cpp \
     sources/window/insertadmin.cpp \
     sources/window/pdfsave.cpp \
@@ -90,7 +91,8 @@ HEADERS += \
     headers/database/show/seuil.h \
     headers/database/show/panne.h \
     headers/database/init/triggerlenddown.h \
-    headers/database/init/triggerreturnup.h
+    headers/database/init/triggerreturnup.h \
+    headers/database/show/trash.h
 
 
 
