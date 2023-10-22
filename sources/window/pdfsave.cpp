@@ -69,7 +69,7 @@ void PdfSave::savePDF() {
     }
 
     // Draw the table data and grid
-    painter.setFont(QFont("Arial", 10));
+    painter.setFont(QFont("Arial", 8));
     int row = 1; // Start from the second row (first row is for headers)
     while (sqlQuery.next()) {
         x = tableX;
