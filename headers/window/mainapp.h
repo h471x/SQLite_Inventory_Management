@@ -10,6 +10,8 @@
 #include "headers/database/show/history.h"
 #include "headers/database/show/available.h"
 #include "headers/database/show/notavailable.h"
+#include "headers/database/show/seuil.h"
+#include "headers/database/show/panne.h"
 #include "headers/window/inscategory.h"
 #include "headers/window/insproduct.h"
 #include "headers/window/lendproduct.h"
@@ -92,8 +94,10 @@ private: //data from database classes
     HistoryShow history;
     AvailableShow available;
     NotAvailableShow notavailable;
+    PanneShow panne;
     AdminShow adminShow;
     CategoryShow categoryShow;
+    SeuilShow seuilShow;
     ProviderShow providerShow;
     UserShow userShow;
 
